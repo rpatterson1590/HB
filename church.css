@@ -128,8 +128,10 @@ body {
    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
 }
 
-.church-map-wrapper {
+.map-parent {
   text-align: center;
+  
+.church-map-wrapper {
   position: relative;   /* or omit entirely */
   width: 400px;
   max-width: 600px;     /* whatever cap you want */
