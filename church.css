@@ -128,20 +128,18 @@ body {
    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
 }
 
-.map-parent {
-  text-align: center;
-  
-.church-map-wrapper {
-  position: relative;   /* or omit entirely */
+.map-container {
+  /* pick whatever width you like (px or %) */
   width: 400px;
-  max-width: 600px;     /* whatever cap you want */
-  margin: 2rem auto;       /* center it */
-  /* no height here! */
-   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  /* center it */
+  margin: 2rem auto;
+  /* optional border or shadow so you can see its bounds */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
-.church-map-wrapper iframe {
-  width: 100%;
-  height: 250px;            /* pick a sane height */
+
+.map-container iframe {
+  display: block;    /* so margin auto on the wrapper works predictably */
+  width: 100%;       /* fill the wrapper */
+  height: 250px;     /* or whatever height you chose */
   border: 0;
-  display: inline-block;
 }
