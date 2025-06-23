@@ -133,12 +133,11 @@ body {
   max-width: 500px;
   margin: 0auto;
   /* 16:9 aspect ratio */
-  padding-bottom: 56.25%;
 }
 .map-container iframe {
   position: absolute;
-  top: 0; left: 0;
-  width: 100%;
+ width: 100%;
   height: 300px;
   border: 0;
+  display: block;
 }
