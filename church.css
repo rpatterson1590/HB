@@ -129,6 +129,7 @@ body {
 }
 
 .church-map-wrapper {
+  text-align: center;
   position: relative;   /* or omit entirely */
   width: 400px;
   max-width: 600px;     /* whatever cap you want */
@@ -140,5 +141,5 @@ body {
   width: 100%;
   height: 250px;            /* pick a sane height */
   border: 0;
-  display: block;
+  display: inline-block;
 }
