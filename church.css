@@ -156,10 +156,11 @@ body {
   border-left: 4px solid #0070c0;  /* accent color on the left edge */
   border-radius: 4px;              /* soften the corners */
   box-shadow: 0 2px 6px rgba(0,0,0,0.05); /* gentle lift effect */
-}
+ }
 
 /* Optional: make links inside paragraphs stand out */
 .love {
   color: #0070c0;
   text-decoration: underline;
+  
 }
