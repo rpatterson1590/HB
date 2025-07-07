@@ -143,3 +143,23 @@ body {
   height: 250px;     /* or whatever height you chose */
   border: 0;
 }
+
+.love {
+  font-family: Georgia, serif;     /* a classic, legible serif */
+  font-size: 1rem;                 /* adjust up/down as needed */
+  line-height: 1.7;                /* extra breathing room */
+  color: #333;                     /* dark gray for softer contrast */
+  max-width: 700px;                /* prevents overly long line-lengths */
+  margin: 1.5em auto;              /* vertical spacing + center on wider containers */
+  padding: 0.75em 1em;             /* inner spacing for comfort */
+  background: #fff;                /* solid or semi-transparent background */
+  border-left: 4px solid #0070c0;  /* accent color on the left edge */
+  border-radius: 4px;              /* soften the corners */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05); /* gentle lift effect */
+}
+
+/* Optional: make links inside paragraphs stand out */
+.love {
+  color: #0070c0;
+  text-decoration: underline;
+}
