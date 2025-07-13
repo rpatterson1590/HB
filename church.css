@@ -37,7 +37,9 @@ body {
   padding: 1rem 0;
 }
 
-.logo { height: 50px; vertical-align: middle; }
+.logo { height: 180px; width: 240px; display: block;
+  margin: 2rem auto;
+  border-radius: 8px;}
 
 .main-nav { display: inline-block; vertical-align: middle; margin-left: 2rem; }
 .main-nav a {
