@@ -166,3 +166,20 @@ body {
   text-decoration: underline;
   
 }
+
+.social-links {
+  display: flex;
+  align-items: center;
+}
+
+.youtube-link {
+  color: #FF0000;              /* YouTube red */
+  font-size: 1.5rem;           /* icon size */
+  margin-left: 1rem;           /* spacing from other items */
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.youtube-link:hover {
+  opacity: 0.7;
+}
