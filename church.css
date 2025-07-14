@@ -41,12 +41,14 @@ body {
   margin: 2rem auto;
   border-radius: 8px;}
 
-.main-nav { display: inline-block; vertical-align: middle; margin-left: 2rem; }
+.main-nav { display: flex; vertical-align: middle; margin-left: 2rem; }
 .main-nav a {
   color: white;
   text-decoration: none;
   margin: 0 1rem;
   font-weight: bold;
+  justify-content: space-between;
+
 }
 .main-nav a:hover { text-decoration: underline; }
 
