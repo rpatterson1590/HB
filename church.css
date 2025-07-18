@@ -208,3 +208,6 @@ body {
 .social-icons a[href*="youtube"]:hover {
   background: #FF0000;
 }
+
+  .phone-link {
+    color: #007acc; }
