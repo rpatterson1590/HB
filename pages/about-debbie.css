@@ -144,3 +144,9 @@ a:hover {
     max-width: 100px;
   }
 }
+
+
+.no-bullets {
+  list-style: none;
+  padding-left: 0;
+}
