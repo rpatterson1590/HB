@@ -211,3 +211,99 @@ body {
 
   .phone-link {
     color: #007acc; }
+
+
+/* Container for all articles */
+.articles-section {
+  padding: 2rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+
+
+}
+
+.articles-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #f5f5f5;;  /* hot magenta */
+  
+ border-bottom: 2px solid  #005a87;
+     font-size: 50px;
+     background-color: #002e4d;
+
+
+}
+
+/* Grid layout for article cards */
+.articles-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Individual article card styles */
+.article-card {
+  background-color: #f5f5f5;;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+
+  transition: 
+    transform 0.2s ease, 
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+   
+
+}
+
+.article-card:hover {
+  transform: translateY(-4px);
+
+  border-color:  #005a87;
+  background-color:  #333;
+
+}
+
+.article-card img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  height: 180px;
+  background-color: #f5f5f5;;
+}
+
+.article-card h3 {
+  font-size: 1.25rem;
+  margin: 1rem;
+   color:  #333;  /* electric cyan */
+  background-color: #f5f5f5;;
+}
+
+.article-card p {
+  margin: 0 1rem 1rem;
+  line-height: 1.5;
+  color: #CCC;     /* softer grey for readability */
+    font-size: 1.25rem;
+    background-color: #f5f5f5;;
+
+}
+
+.article-card .read-more {
+  display: inline-block;
+  margin: 0 1rem 1rem;
+  font-weight: bold;
+   color :#005;
+  font-weight: bold;
+  text-decoration: none;
+
+    background-color:  whitesmoke;
+
+  
+}
+
+.article-card .read-more:hover {
+  text-decoration: underline;
+  color:#005;
+ 
+}
