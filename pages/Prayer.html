@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Heaven Bound • Prayer Requests</title>
+<link rel="icon" href="/favicon.ico">
+<link rel="stylesheet" href="Prayer.css">
+
+</head>
+<body>
+
+<!-- Header + Nav (mirrors Heaven Bound’s simple top section) -->
+<header class="site-header">
+  <div class="container">
+    <div class="brand">
+      <!-- Optional logo; replace src if you want the church logo -->
+      <img src="https://heavenboundchurchofgod.com/assets/images/logo.png" alt="Heaven Bound Church of God logo" onerror="this.style.display='none'">
+      <div>
+        <h1>Heaven Bound Church of God</h1>
+        <div class="tagline">Where Everybody is Somebody!</div>
+      </div>
+    </div>
+      <header class="site-header">
+    <img alt="Church Logo" class="logo" src="logo3.png">
+    <div class="container">
+     
+ <nav class="main-nav">
+  <a href="/index.html">Home</a>
+  <a href="/pages/webilileve.html">What We Believe</a>
+  <a href="/pages/debbie.html">Meet Our Founders</a>
+  <a href="">Prayer Request</a>
+   <a href="https://churchofgod.org/">Church of God</a>
+</nav>
+    </div>
+  </header>
+
+<section class="church-photo">
+  <div class="container">
+    <img src="prayer1.png" alt="Heaven Bound Church of God building">
+    <p class="love">Please share your request below. Public requests appear on this page. You can also submit privately.</p>
+    
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  integrity="sha512-…"
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
+
+<div class="social-icons">
+    
+
+  
+</section>
+
+<main>
+  <div class="container1">
+    <!-- Controls row (search/sort/admin) -->
+    <div class="card1" style="margin-top:18px">
+      <div class="controls">
+        <input id="search" class="search" type="text" placeholder="Search requests (name/text)…" aria-label="Search requests"/>
+        <select id="statusFilter" aria-label="Filter by status" class="btn ghost">
+          <option value="all">All</option>
+          <option value="open">Open</option>
+          <option value="answered">Answered</option>
+        </select>
+        <select id="sortBy" aria-label="Sort by" class="btn ghost">
+          <option value="new">Newest</option>
+          <option value="old">Oldest</option>
+          <option value="prayed">Most prayed</option>
+        </select>
+        <button id="toggleAdminBtn" class="btn" type="button" aria-expanded="false">Admin</button>
+      </div>
+    </div>
+
+    <!-- Admin panel -->
+    <div id="adminPanel" class="card1" hidden>
+      <strong>Admin mode</strong>
+      <p class="hint">Enter your PIN to enable moderation (delete / mark answered / view private). PIN is set in the script.</p>
+      <div class="controls">
+        <input id="adminPin" type="password" placeholder="Enter PIN" />
+        <button id="adminUnlock" class="btn success" type="button">Unlock</button>
+        <button id="adminLock" class="btn ghost" type="button" hidden>Lock</button>
+        <label class="controls" style="gap:6px"><input id="showPrivate" type="checkbox" disabled /> <span>Show private requests</span></label>
+      </div>
+      <div id="adminNote" class="hint" hidden>Admin unlocked.</div>
+    </div>
+
+    <!-- Submit form -->
+    <div class="card1" aria-labelledby="postHeading" style="margin-top:18px">
+      <h3 id="postHeading" style="margin:0 0 6px 0; font-family: Georgia, 'Times New Roman', Times, serif;">Submit a Prayer Request</h3>
+      <p class="hint">Name is optional. Email is optional (used only if a pastor/staff follows up; never shown publicly).</p>
+      <form id="form">
+        <div class="controls" style="flex-wrap:wrap">
+          <input id="name" name="name" type="text" maxlength="60" placeholder="Name (optional)" />
+          <input id="email" name="email" type="email" maxlength="120" placeholder="Email (optional, not displayed)" />
+        </div>
+        <div style="margin-top:10px">
+          <textarea id="text" name="text" maxlength="1000" placeholder="What can we pray for?"></textarea>
+        </div>
+        <div class="controls">
+          <label><input type="checkbox" id="isPublic" checked /> Share publicly on this page</label>
+          <!-- Honeypot anti-spam: should stay blank -->
+          <input type="text" id="website" name="website" style="position:absolute; left:-9999px" tabindex="-1" autocomplete="off" aria-hidden="true" />
+        </div>
+        <div class="controls">
+          <button class="btn" type="submit">Post request</button>
+          <button class="btn ghost" type="reset">Clear</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- List -->
+    <section aria-labelledby="listHeading">
+      <h3 id="listHeading" class="kicker">Requests</h3>
+      <div id="list" class="grid" role="list"></div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    © 2025 Heaven Bound Church of God. Powered by love.
+  </div>
+</footer>
+
+<script>
+/* =========================
+   Prayer Board – localStorage
+   (functionality from your existing file; theme only changed)
+   ========================= */
+
+// ---- Configuration ----
+const ADMIN_PIN = "4321"; // <<< CHANGE THIS
+const STORAGE_KEY = "prayerBoard.requests.v1";
+
+// ---- State ----
+let state = {
+  admin: false,
+  showPrivate: false,
+  search: "",
+  status: "all", // "all" | "open" | "answered"
+  sortBy: "new"  // "new" | "old" | "prayed"
+};
+
+// ---- Utils ----
+const $ = (sel) => document.querySelector(sel);
+const $$ = (sel) => Array.from(document.querySelectorAll(sel));
+const nowISO = () => new Date().toISOString();
+const fmtDate = (iso) => new Date(iso).toLocaleString();
+const uid = () => Math.random().toString(36).slice(2, 10);
+const sanitize = (s) =>
+  s.replace(/[<>&]/g, (c) => ({'<':'&lt;','>':'&gt;','&':'&amp;'}[c]));
+
+// Persist/Load
+function loadAll(){
+  try{
+    const raw = localStorage.getItem(STORAGE_KEY);
+    return raw ? JSON.parse(raw) : [];
+  }catch{ return []; }
+}
+function saveAll(list){ localStorage.setItem(STORAGE_KEY, JSON.stringify(list)); }
+
+// ---- Data API ----
+function addRequest({name, email, text, isPublic}){
+  const list = loadAll();
+  const item = {
+    id: uid(),
+    name: (name||"").trim() || "Anonymous",
+    email: (email||"").trim(),
+    text: text.trim(),
+    isPublic: !!isPublic,
+    createdAt: nowISO(),
+    prayedCount: 0,
+    status: "open" // "open" | "answered"
+  };
+  list.unshift(item);
+  saveAll(list);
+  return item;
+}
+function updateRequest(id, patch){
+  const list = loadAll();
+  const i = list.findIndex(x=>x.id===id);
+  if(i>-1){ list[i] = {...list[i], ...patch}; saveAll(list); return list[i]; }
+  return null;
+}
+function deleteRequest(id){
+  const list = loadAll().filter(x=>x.id!==id);
+  saveAll(list);
+}
+function incPrayed(id){
+  const r = loadAll().find(x=>x.id===id);
+  if(!r) return;
+  updateRequest(id, {prayedCount: (r.prayedCount||0)+1});
+}
+
+// ---- Filters & rendering ----
+function matchesFilters(r){
+  if(!state.admin && !r.isPublic) return false; // hide private unless admin
+  if(state.status==="open" && r.status!=="open") return false;
+  if(state.status==="answered" && r.status!=="answered") return false;
+  if(state.search){
+    const q = state.search.toLowerCase();
+    const hay = `${r.name} ${r.text}`.toLowerCase();
+    if(!hay.includes(q)) return false;
+  }
+  return true;
+}
+function sortList(list){
+  if(state.sortBy==="new") return list.sort((a,b)=> b.createdAt.localeCompare(a.createdAt));
+  if(state.sortBy==="old") return list.sort((a,b)=> a.createdAt.localeCompare(b.createdAt));
+  if(state.sortBy==="prayed") return list.sort((a,b)=> (b.prayedCount||0)-(a.prayedCount||0));
+  return list;
+}
+function render(){
+  const listEl = $("#list");
+  const all = loadAll();
+  const visible = sortList(all.filter(matchesFilters));
+
+  listEl.innerHTML = "";
+  if(visible.length===0){
+    listEl.innerHTML = `<div class="req"><em>No requests yet.</em></div>`;
+    return;
+  }
+
+  for(const r of visible){
+    const who = sanitize(r.name || "Anonymous");
+    const text = sanitize(r.text).replace(/\n/g,"<br>");
+    const badge =
+      `<span class="badge ${r.status==='answered'?'answered':''}">
+        ${r.status==='answered' ? 'Answered' : (r.isPublic ? 'Public' : 'Private')}
+      </span>`;
+    const adminBtns = state.admin ? `
+      <button class="btn success" data-act="toggle_answered" data-id="${r.id}">
+        ${r.status==='answered' ? 'Mark open' : 'Mark answered'}
+      </button>
+      <button class="btn danger" data-act="delete" data-id="${r.id}">Delete</button>
+    ` : "";
+
+    const privateMark = (!r.isPublic)
+      ? `<div class="hint">Private request (only visible in Admin mode).</div>`
+      : "";
+
+    const card = document.createElement("article");
+    card.className = "req";
+    card.setAttribute("role","listitem");
+    card.innerHTML = `
+      <header>
+        <div>
+          <div class="who">${who}</div>
+          <div class="when">${fmtDate(r.createdAt)}</div>
+        </div>
+        ${badge}
+      </header>
+      <div class="body">${text}</div>
+      ${privateMark}
+      <footer>
+        <div class="counter" aria-live="polite" id="count-${r.id}">
+          🙏 Prayed: ${r.prayedCount||0}
+        </div>
+        <div class="toolbar">
+          <button class="btn" data-act="pray" data-id="${r.id}" aria-describedby="count-${r.id}">I prayed</button>
+          ${adminBtns}
+        </div>
+      </footer>
+    `;
+    listEl.appendChild(card);
+  }
+}
+
+// ---- Events ----
+document.getElementById("form").addEventListener("submit", (e)=>{
+  e.preventDefault();
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const text = document.getElementById("text").value;
+  const isPublic = document.getElementById("isPublic").checked;
+  const honeypot = document.getElementById("website").value; // must be blank
+
+  if(honeypot){ return; } // bot
+  if(!text.trim()){ alert("Please enter a prayer request."); return; }
+  if(text.length > 1000){ alert("Please keep requests to 1000 characters."); return; }
+
+  addRequest({name, email, text, isPublic});
+  e.target.reset();
+  render();
+});
+
+document.getElementById("list").addEventListener("click", (e)=>{
+  const btn = e.target.closest("button[data-act]");
+  if(!btn) return;
+  const id = btn.getAttribute("data-id");
+  const act = btn.getAttribute("data-act");
+
+  if(act==="pray"){
+    incPrayed(id);
+    render();
+  } else if(act==="toggle_answered" && state.admin){
+    const r = loadAll().find(x=>x.id===id);
+    if(!r) return;
+    updateRequest(id, {status: r.status==='answered'?'open':'answered'});
+    render();
+  } else if(act==="delete" && state.admin){
+    if(confirm("Delete this request?")){ deleteRequest(id); render(); }
+  }
+});
+
+document.getElementById("search").addEventListener("input", (e)=>{ state.search = e.target.value.trim(); render(); });
+document.getElementById("statusFilter").addEventListener("change", (e)=>{ state.status = e.target.value; render(); });
+document.getElementById("sortBy").addEventListener("change", (e)=>{ state.sortBy = e.target.value; render(); });
+
+const adminPanel = document.getElementById("adminPanel");
+const toggleBtn = document.getElementById("toggleAdminBtn");
+toggleBtn.addEventListener("click", ()=>{
+  const show = adminPanel.hasAttribute("hidden");
+  if(show){ adminPanel.removeAttribute("hidden"); }
+  else { adminPanel.setAttribute("hidden",""); }
+  toggleBtn.setAttribute("aria-expanded", String(show));
+});
+
+document.getElementById("adminUnlock").addEventListener("click", ()=>{
+  const ADMIN_PIN = "1992"; // <<< CHANGE THIS
+  const pin = document.getElementById("adminPin").value.trim();
+  if(pin===ADMIN_PIN){
+    state.admin = true;
+    document.getElementById("adminPin").value = "";
+    document.getElementById("adminLock").hidden = false;
+    document.getElementById("adminUnlock").hidden = true;
+    document.getElementById("showPrivate").disabled = false;
+    document.getElementById("adminNote").hidden = false;
+    render();
+  }else{
+    alert("Incorrect PIN.");
+  }
+});
+document.getElementById("adminLock").addEventListener("click", ()=>{
+  state.admin = false;
+  state.showPrivate = false;
+  document.getElementById("showPrivate").checked = false;
+  document.getElementById("showPrivate").disabled = true;
+  document.getElementById("adminLock").hidden = true;
+  document.getElementById("adminUnlock").hidden = false;
+  document.getElementById("adminNote").hidden = true;
+  render();
+});
+document.getElementById("showPrivate").addEventListener("change", (e)=>{
+  state.showPrivate = e.target.checked;
+  render();
+});
+
+// Initial paint
+render();
+</script>
+</body>
+</html>
