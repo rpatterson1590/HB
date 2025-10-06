@@ -5,13 +5,52 @@
   --text-color: #333;
 }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 body {
   font-family: Arial, sans-serif;
   background: var(--light-bg);
   color: var(--text-color);
   line-height: 1.5;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1rem;
+  text-align: center;
+}
+
+.site-header {
+  background: var(--primary-color);
+  padding: 1rem 0;
+}
+
+.logo {
+  height: 180px;
+  width: 240px;
+  display: block;
+  margin: 2rem auto;
+  border-radius: 8px;
+}
+
+.main-nav {
+  margin-top: 1rem;
+}
+
+.main-nav a {
+  color: white;
+  margin: 0 10px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.main-nav a:hover {
+  text-decoration: underline;
 }
 
 .church-photo img {
@@ -23,33 +62,14 @@ body {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-.container {
-  max-width: 1000px;
-  margin: 0 auto; /* centers the block horizontally */
-  padding: 1rem;
-  text-align: center; /* centers inline elements like links */
-  box-sizing: border-box;
-  width: 100%;
+.caption {
+  text-align: center;
+  font-style: italic;
+  margin-top: 0.5rem;
+  color: #555;
+  font-size: 0.95rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
-
-.site-header {
-  background: var(--primary-color);
-  padding: 1rem 0;
-}
-
-.logo { height: 180px; width: 240px; display: block;
-  margin: 2rem auto;
-  border-radius: 8px;}
-
-.main-nav {
-  margin-top: 1rem; }
-.main-nav a {
-  color: white;
-  margin: 0 10px;
-  font-weight: bold;
-  display: inline-block;
-}
-.main-nav a:hover { text-decoration: underline; }
 
 .hero {
   background: var(--accent-color);
@@ -57,7 +77,12 @@ body {
   text-align: center;
   padding: 4rem 1rem;
 }
-.hero h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
 .cta-buttons .btn {
   background: white;
   color: var(--accent-color);
@@ -67,6 +92,7 @@ body {
   text-decoration: none;
   font-weight: bold;
 }
+
 .cta-buttons .btn:hover {
   background: #f0f0f0;
 }
@@ -75,12 +101,18 @@ body {
   padding: 2rem 0;
   background: white;
 }
-.qa h2 { margin-bottom: 1rem; text-align: center; }
+
+.qa h2 {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
 .qa-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1rem;
 }
+
 .qa-grid a {
   background: var(--light-bg);
   padding: 1rem;
@@ -89,7 +121,10 @@ body {
   text-decoration: none;
   color: var(--text-color);
 }
-.qa-grid a:hover { background: #eaeaea; }
+
+.qa-grid a:hover {
+  background: #eaeaea;
+}
 
 .info {
   display: flex;
@@ -97,12 +132,15 @@ body {
   background: white;
   padding: 2rem 0;
 }
+
 .info > .container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
-.times, .contact {
+
+.times,
+.contact {
   flex: 1 1 280px;
   margin: 0.5rem;
 }
@@ -115,84 +153,53 @@ body {
   font-size: 0.85rem;
 }
 
-/* Mobile adjustments */
-@media(max-width: 600px) {
-  .hero h1 { font-size: 2rem; }
-  .main-nav { display: block; text-align: center; margin-top: 0.5rem; }
-  .main-nav a { display: inline-block; margin: 0.5rem; }
-}
-
-.caption {
-  text-align: center;
-  font-style: italic;
-  margin-top: 0.5rem;
-  color: #555;
-  font-size: 0.95rem;
-   box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-}
-
 .map-container {
-  /* pick whatever width you like (px or %) */
   width: 400px;
-  /* center it */
   margin: 2rem auto;
-  /* optional border or shadow so you can see its bounds */
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 .map-container iframe {
-  display: block;    /* so margin auto on the wrapper works predictably */
-  width: 100%;       /* fill the wrapper */
-  height: 250px;     /* or whatever height you chose */
+  display: block;
+  width: 100%;
+  height: 250px;
   border: 0;
 }
 
 .love {
-  font-family: Georgia, serif;     /* a classic, legible serif */
-  font-size: 1rem;                 /* adjust up/down as needed */
-  line-height: 1.7;                /* extra breathing room */
-  color: #333;                     /* dark gray for softer contrast */
-  max-width: 700px;                /* prevents overly long line-lengths */
-  margin: 1.5em auto;              /* vertical spacing + center on wider containers */
-  padding: 0.75em 1em;             /* inner spacing for comfort */
-  background: #fff;                /* solid or semi-transparent background */
-  border-left: 4px solid #0070c0;  /* accent color on the left edge */
-  border-radius: 4px;              /* soften the corners */
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05); /* gentle lift effect */
- }
-
-/* Optional: make links inside paragraphs stand out */
-.love {
+  font-family: Georgia, serif;
+  font-size: 1rem;
+  line-height: 1.7;
   color: #0070c0;
+  max-width: 700px;
+  margin: 1.5em auto;
+  padding: 0.75em 1em;
+  background: #fff;
+  border-left: 4px solid #0070c0;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
   text-decoration: underline;
-  
 }
 
-/* Container flexbox */
 .social-icons {
   display: inline-flex;
-  gap: 0.75rem;            /* space between icons */
-  align-items: center;     /* vertical centering */
+  gap: 0.75rem;
+  align-items: center;
 }
 
-/* Shared link styles */
 .social-icons a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 2.5rem;
   height: 2.5rem;
-  color: #3b5998 ;             /* default icon color */
-  background: #f0f0f0;     /* subtle background circle */
+  color: #3b5998;
+  background: #f0f0f0;
   border-radius: 50%;
   text-decoration: none;
-  transition: 
-    background 0.2s,
-    color 0.2s,
-    transform 0.15s;
+  transition: background 0.2s, color 0.2s, transform 0.15s;
 }
 
-/* Hover/focus state */
 .social-icons a:hover,
 .social-icons a:focus {
   background: var(--your-accent-color, #eee);
@@ -200,7 +207,6 @@ body {
   transform: scale(1.1);
 }
 
-/* YouTube icon override */
 .social-icons a[href*="youtube"] {
   color: #FF0000;
 }
@@ -209,101 +215,85 @@ body {
   background: #FF0000;
 }
 
-  .phone-link {
-    color: #007acc; }
+.phone-link {
+  color: #007acc;
+}
 
-
-/* Container for all articles */
+/* Articles Section with Video Embeds */
 .articles-section {
   padding: 2rem 1rem;
   max-width: 1200px;
   margin: 0 auto;
-
-
 }
 
 .articles-section h2 {
-  font-size: 2rem;
+  font-size: 50px;
   margin-bottom: 1.5rem;
   text-align: center;
-  color: #f5f5f5;;  /* hot magenta */
-  
- border-bottom: 2px solid  #005a87;
-     font-size: 50px;
-     background-color: #002e4d;
-
-
+  color: #f5f5f5;
+  background-color: var(--primary-color);
+  border-bottom: 2px solid var(--accent-color);
 }
 
-/* Grid layout for article cards */
 .articles-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 1.5rem;
 }
 
-/* Individual article card styles */
 .article-card {
-  background-color: #f5f5f5;;
+  background-color: var(--light-bg);
   border: 1px solid #e0e0e0;
   border-radius: 8px;
   overflow: hidden;
-
-  transition: 
-    transform 0.2s ease, 
-    box-shadow 0.2s ease,
-    border-color 0.2s ease;
-   
-
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 .article-card:hover {
   transform: translateY(-4px);
-
-  border-color:  #005a87;
-  background-color:  #333;
-
+  border-color: var(--accent-color);
+  background-color: #333;
 }
 
-.article-card img {
+/* Embedded YouTube Video */
+.article-card iframe {
   width: 100%;
-  display: block;
-  object-fit: cover;
-  height: 180px;
-  background-color: #f5f5f5;;
+  aspect-ratio: 16 / 9;
+  border: none;
+  border-radius: 8px 8px 0 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  margin-bottom: 1rem;
 }
 
+/* Title under video */
 .article-card h3 {
-  font-size: 1.25rem;
-  margin: 1rem;
-   color:  #333;  /* electric cyan */
-  background-color: #f5f5f5;;
+  font-size: 1.2rem;
+  text-align: center;
+  margin: 0 0 1rem;
+  padding: 0 0.5rem;
+  color: var(--primary-color);
+  background-color: transparent;
 }
 
-.article-card p {
-  margin: 0 1rem 1rem;
-  line-height: 1.5;
-  color: #CCC;     /* softer grey for readability */
-    font-size: 1.25rem;
-    background-color: #f5f5f5;;
+/* Responsive Tweaks */
+@media(max-width: 600px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
 
+  .main-nav {
+    display: block;
+    text-align: center;
+    margin-top: 0.5rem;
+  }
+
+  .main-nav a {
+    display: inline-block;
+    margin: 0.5rem;
+  }
+
+  .map-container {
+    width: 90%;
+  }
 }
 
-.article-card .read-more {
-  display: inline-block;
-  margin: 0 1rem 1rem;
-  font-weight: bold;
-   color :#005;
-  font-weight: bold;
-  text-decoration: none;
-
-    background-color:  whitesmoke;
-
-  
-}
-
-.article-card .read-more:hover {
-  text-decoration: underline;
-  color:#005;
- 
-}
