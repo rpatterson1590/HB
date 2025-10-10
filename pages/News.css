@@ -253,6 +253,7 @@ a:hover {
 }
 
 img.rounded-banner {
+  align-items: center;
   width: 400px; /* adjust as needed */
   height: 400px; /* keep equal for a perfect circle */
   border-radius: 50%; /* makes it round */
@@ -315,3 +316,4 @@ border-bottom: 2px solid #ccc;
   box-shadow: inset 0 0 10px rgba(0, 183, 255, 0.3);
 
   }
+
