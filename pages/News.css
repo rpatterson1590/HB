@@ -265,6 +265,7 @@ img.rounded-banner {
 
 
 .banner1 {
+  align-items: center;
   width: 100%;
   max-height: 50%;
   object-fit: cover;
@@ -299,5 +300,18 @@ img.rounded-banner {
 
   .end {
 border-bottom: 2px solid #ccc;
+
+  }
+
+
+  .thankyou {
+
+    border-left: 4px solid #ff1a1a;
+  padding-left: 1rem;
+  margin: 1rem 0;
+  font-style: italic;
+  color: #0b0fd6;
+  background-color: rgba(229, 255, 0, 0.05);
+  box-shadow: inset 0 0 10px rgba(0, 183, 255, 0.3);
 
   }
