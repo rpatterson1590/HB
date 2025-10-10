@@ -1,0 +1,303 @@
+:root {
+  --primary-color: #002e4d;
+  --accent-color: #005a87;
+  --bg-light: #f9f9f9;
+  --text-color: #333;
+}
+
+/* === Base Styling === */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: var(--bg-light);
+  color: var(--text-color);
+  line-height: 1.6;
+      line-height: 1.5;
+    color: #111;
+    background: #faf8f4;
+    margin: 0;
+    padding: 2rem 1rem 4rem;
+   
+    justify-content: center;
+}
+
+
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto; /* centers the block horizontally */
+  padding: 1rem;
+  text-align: center; /* centers inline elements like links */
+  box-sizing: border-box;
+  width: 100%;
+}
+
+
+/* === Header === */
+.site-header {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 1.5rem 1rem;
+  text-align: center;
+}
+.site-header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+.main-nav {
+  margin-top: 1rem;
+}
+.main-nav a {
+  color: white;
+  margin: 0 10px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+/* === Shared About Section === */
+.about-couple {
+  padding: 2rem 1rem;
+  background-color: white;
+}
+
+.about-couple h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 2rem;
+}
+
+.bio {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.bio-photo {
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: block;
+  margin: 0 auto;
+}
+
+.bio-text {
+  flex: 1;
+  min-width: 260px;
+}
+
+.bio-text h3 {
+  color: var(--accent-color);
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.bio-text p {
+  margin-bottom: 1.5rem;
+}
+
+/* === Footer === */
+.site-footer {
+  background-color: var(--primary-color);
+  color: white;
+  text-align: center;
+  padding: 1rem 0;
+  font-size: 0.9rem;
+}
+
+/* === Mobile Adjustments === */
+@media (max-width: 768px) {
+  .bio {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .bio-text {
+    text-align: center;
+    padding: 0 1rem;
+  }
+
+  .main-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .main-nav a {
+    font-size: 0.95rem;
+  }
+}
+
+.logo {
+  max-width: 150px;  /* Adjust this number as needed */
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+@media (max-width: 600px) {
+  .logo {
+    max-width: 100px;
+  }
+}
+
+
+.no-bullets {
+  list-style: none;
+  padding-left: 0;
+}
+
+
+ .page{
+    max-width: var(--page-max);
+    background: #fff;
+    box-shadow: 0 8px 30px rgba(0,0,0,.08);
+    border: 1px solid #eee;
+    padding: 2.2rem 2.4rem;
+  }
+
+  .kicker{
+    font-variant: small-caps;
+    letter-spacing: .04em;
+    color: #555;
+    font-size: .9rem;
+  }
+  h1{
+    font-size: 2.1rem;
+    line-height: 1.2;
+    margin: .25rem 0 .35rem;
+  }
+  .byline{
+    font-style: italic;
+    color: #333;
+    margin-bottom: 1.2rem;
+  }
+  figure{
+    margin: 0 0 1.2rem 0;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    padding: .8rem 0;
+  }
+  figcaption{
+    font-size: .9rem;
+    color: #555;
+    text-align: center;
+  }
+  .deck{
+    font-weight: 600;
+    margin: 0 0 .8rem 0;
+  }
+  .cols{
+    column-count: 2;
+    column-gap: 2rem;
+  }
+  p{ margin: 0 0 .9rem; }
+  .note{
+    background: #fff8d8;
+    border: 1px solid #f1e3a2;
+    padding: .75rem .9rem;
+    font-size: .92rem;
+    margin-top: 1.2rem;
+  }
+
+.Heard {
+
+  margin: auto;
+  display: block;
+  text-align: center;
+}
+
+
+
+
+
+ .news-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.news-archive-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.news-entry {
+  background: #f9f9f9;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-top: 2rem;
+}
+
+.news-entry section {
+  margin-bottom: 1.5rem;
+}
+
+.news-entry h3 {
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 0.25rem;
+}
+
+img.rounded-banner {
+  width: 400px; /* adjust as needed */
+  height: 400px; /* keep equal for a perfect circle */
+  border-radius: 50%; /* makes it round */
+  object-fit: cover; /* ensures the image fills the circle */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* optional soft shadow */
+  display: block;
+  margin: 20px auto; /* centers it */
+  box-shadow: 0 0 20px #ffdd1a;
+}
+
+
+.banner1 {
+  width: 100%;
+  max-height: 50%;
+  object-fit: cover;
+  margin: 1rem 0;
+  border-radius: 12px;
+  box-shadow: 0 0 20px #1a57ff;
+  margin-top: 100px;
+}
+
+  blockquote {
+  border-left: 4px solid #ff1a1a;
+  padding-left: 1rem;
+  margin: 1rem 0;
+  font-style: italic;
+  color: #0b0fd6;
+  background-color: rgba(229, 255, 0, 0.05);
+  box-shadow: inset 0 0 10px rgba(0, 183, 255, 0.3);
+
+  }
+
+  .Pastorsig {
+
+    font-family: 'Dancing Script', cursive;
+    color: #0b0fd6;
+    font-size: 25px;
+    border-bottom: 2px solid #ccc;
+
+
+
+
+  }
+
+  .end {
+border-bottom: 2px solid #ccc;
+
+  }
