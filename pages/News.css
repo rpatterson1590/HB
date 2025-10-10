@@ -260,8 +260,9 @@ img.rounded-banner {
   object-fit: cover; /* ensures the image fills the circle */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* optional soft shadow */
   display: block;
-  margin: 20px auto; /* centers it */
+  margin: 1rem 0;/* centers it */
   box-shadow: 0 0 20px #ffdd1a;
+  margin-top: 100px;
 }
 
 
@@ -316,4 +317,5 @@ border-bottom: 2px solid #ccc;
   box-shadow: inset 0 0 10px rgba(0, 183, 255, 0.3);
 
   }
+
 
