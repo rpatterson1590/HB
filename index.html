@@ -27,32 +27,21 @@
     <div class="container">
      
  <nav class="main-nav">
+    <a
+    href="https://www.youtube.com/@heavenboundchurch3377"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Subscribe to our YouTube channel"
+  >
+    <i class="fab fa-youtube" aria-hidden="true"></i>
+  </a>
   <a href="/index.html">Home</a>
   <a href="/pages/webilileve.html">What We Believe</a>
   <a href="/pages/debbie.html">Meet Our Founders</a>
    <a href="/pages/december.html">News</a>
    <a href="/pages/Prayer.html">Prayer Request</a>
    <a href="https://churchofgod.org/">Church of God</a>
-  </nav>
-    </div>
-  </header>
-
-
-<section class="church-photo">
-  <div class="container">
-    <img src="church.jpg" alt="Heaven Bound Church of God building">
-    <p class="love">This is a Church that Loves God & People! It is a House of Salvation, a House of Prayer, a House of Refuge, a House of Love, and a House of Power!</p>
-    <h3>Vist us on Social Media</h3>
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-  integrity="sha512-…"
-  crossorigin="anonymous"
-  referrerpolicy="no-referrer"
-/>
-
-<div class="social-icons">
-  <a
+     <a
     href="https://www.facebook.com/profile.php?id=100064533316230"
     target="_blank"
     rel="noopener noreferrer"
@@ -72,17 +61,54 @@
       />
     </svg>
   </a>
+  </nav>
+    </div>
+  </header>
 
-  <a
-    href="https://www.youtube.com/@heavenboundchurch3377"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Subscribe to our YouTube channel"
-  >
-    <i class="fab fa-youtube" aria-hidden="true"></i>
-  </a>
+
+<section class="church-photo">
+  
+  
+ <div class="carousel">
+    <div class="slides" id="slides">
+      <div class="slide"><img src="Church1.png" alt="Slide 1"></div>
+      <div class="slide"><a href="https://robofcarrollton.org/"><img src="ROC1.png" alt="Slide 2"></a></div>
+      <div class="slide"><a href="https://heavenboundchurchofgod.com/pages/saved"><img src="saved.png" alt="Slide 3"></a></div>
+      <div class="slide"><a href="https://heavenboundchurchofgod.com/pages/why"><img src="why.png" alt="Slide 4"></a></div>
+      <div class="slide"><a href="https://heavenboundchurchofgod.com/pages/children"><img src="Child3.png" alt="Slide 5"></a></div>
+      <div class="slide"><a href="https://www.facebook.com/EphesusGA/"><img src="IMG_6855.JPEG" alt="Slide 6"></a></div>
+      <div class="slide"><a href="https://www.facebook.com/groups/626364787227293"><img src="health.png" alt="Slide 7"></a></div>
+
+    </div>
+    <div class="controls">
+      <button class="control-btn" id="prev">&#10094;</button>
+      <button class="control-btn" id="next">&#10095;</button>
+    </div>
   </div>
-  </section>
+
+  <script>
+    const slides = document.getElementById('slides');
+    const totalSlides = slides.children.length;
+    let index = 0;
+
+    const showSlide = (i) => {
+      index = (i + totalSlides) % totalSlides;
+      slides.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    document.getElementById('prev').addEventListener('click', () => showSlide(index - 1));
+    document.getElementById('next').addEventListener('click', () => showSlide(index + 1));
+
+    // Auto-play
+    setInterval(() => {
+      showSlide(index + 1);
+    }, 5000);
+  </script>
+
+
+</section>
+  
+ 
   
 
 
@@ -92,15 +118,14 @@
 
 
 
-<section class="qa">
-    <div class="container">
-      <h2>The Most Important Questions</h2>
-      <div class="qa-grid">
-        <a href="/pages/saved.html">What Must I Do to Be Saved?</a>
-         <a href="/pages/why.html">Why Heaven Bound?</a>
-      </div>
-    </div>
-  </section>
+
+
+
+
+
+
+
+
 
 
 
@@ -113,15 +138,7 @@
 </div>
 
 
-<section class="qa">
-    <div class="container">
-      <h2>Ministries</h2>
-      <div class="qa-grid">
-        <a href="/pages/Children.html">Children’s Church</a>
-         <a href="https://www.facebook.com/groups/626364787227293">Heaven Bound Journey of Change</a>
-      </div>
-    </div>
-  </section>
+
 
 
 
@@ -210,6 +227,7 @@
   </footer>
 </body>
 </html>
+
 
 
 
