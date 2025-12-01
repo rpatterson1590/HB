@@ -252,7 +252,15 @@ a:hover {
   padding-bottom: 0.25rem;
 }
 
-img.rounded-banner { align-items: center; width: 400px; /* adjust as needed */ height: 400px; /* keep equal for a perfect circle */ border-radius: 50%; /* makes it round */ object-fit: cover; /* ensures the image fills the circle */ box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* optional soft shadow */ display: block; margin: 1rem 0;/* centers it */ box-shadow: 0 0 20px #ffdd1a; margin-top: 100px; }
+img.rounded-banner {
+  display: block;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 20px #ffdd1a;
+  margin: 100px auto 1rem auto; /* top, horizontal (auto), bottom, horizontal (auto) */
+}
 
 /* Responsive sizing for smaller screens */
 @media (max-width: 500px) {
@@ -350,6 +358,7 @@ border-bottom: 2px solid #ccc;
 .christmas em {
   color: #c1121f; /* holiday red */
 }
+
 
 
 
