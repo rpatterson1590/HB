@@ -348,3 +348,12 @@ body {
     }
 
 
+    @media (max-width: 600px) {
+  .slide img {
+    height: auto; /* Let it scale naturally */
+    max-height: 300px; /* Optional: cap the height */
+    object-fit: contain; /* Prevents zoom/crop */
+  }
+}
+
+
