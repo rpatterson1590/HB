@@ -357,3 +357,44 @@ body {
 }
 
 
+    .countdown-box {
+      text-align: center;
+      background: #3b5998;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.788);
+    }
+
+    .count {
+      margin-bottom: 20px;
+      font-size: 2rem;
+      color: #ffffff;
+    }
+
+    .countdown {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .time {
+      background: #ffffff;
+      padding: 15px 20px;
+      border-radius: 10px;
+      min-width: 80px;
+    }
+
+    .time span {
+      display: block;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    .label {
+      font-size: 0.9rem;
+      color: #bbb;
+      margin-top: 5px;
+    }
+
+
