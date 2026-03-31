@@ -411,5 +411,34 @@ border-bottom: 2px solid #ccc;
   }
 
 
+.fire-announcement {
+  margin: 24px auto;
+  padding: 18px 24px;
+  max-width: 900px;
+
+  color: #fff8e7;
+  background: linear-gradient(135deg, #2b0000 0%, #7a1200 45%, #ff6a00 100%);
+  border: 3px solid #ffb347;
+  border-radius: 16px;
+
+  font-family: "Georgia", serif;
+  font-size: clamp(1.4rem, 2.8vw, 2.3rem);
+  font-weight: 800;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 1.35;
+
+  box-shadow:
+    0 0 12px rgba(255, 106, 0, 0.45),
+    0 0 28px rgba(255, 140, 0, 0.25),
+    0 10px 24px rgba(0, 0, 0, 0.35);
+
+  text-shadow:
+    0 0 4px rgba(255, 220, 120, 0.8),
+    0 0 10px rgba(255, 120, 0, 0.6),
+    2px 2px 4px rgba(0, 0, 0, 0.45);
+}
+
 
 
