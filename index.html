@@ -1,147 +1,704 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Heaven Bound Church of God</title>
-  <link rel="stylesheet" href="church.css">
-  <link rel="icon" sizes="32x32" href="/favicon-32.png" type="dove.jpg">
-<link rel="icon" sizes="192x192" href="/favicon-192.png" type="dove.jpg">
-  <figcaption class="caption">Heaven Bound Church of God - Where Everybody is Somebody!</figcaption>
-  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<link rel="shortcut icon" href="/favicon.ico" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-<link rel="manifest" href="/site.webmanifest" />
-  <link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-  integrity="sha512-…"
-  crossorigin="anonymous"
-  referrerpolicy="no-referrer"
-/>
+
+  <style>
+    :root {
+      --blue-dark: #062946;
+      --blue-main: #073b63;
+      --blue-light: #0d5c8e;
+      --white: #ffffff;
+      --gold: #d8b35a;
+      --soft-white: rgba(255, 255, 255, 0.86);
+      --glass: rgba(255, 255, 255, 0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      background:
+        radial-gradient(circle at top left, rgba(22, 105, 158, 0.55), transparent 35%),
+        linear-gradient(135deg, var(--blue-dark), var(--blue-main), #021a31);
+      color: var(--white);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(16px);
+      background: rgba(2, 26, 49, 0.82);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 0;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .brand-mark {
+      width: 54px;
+      height: 54px;
+      border: 3px solid var(--white);
+      border-radius: 50%;
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .brand-mark::before {
+      content: "";
+      position: absolute;
+      left: 22px;
+      top: -14px;
+      width: 4px;
+      height: 78px;
+      background: var(--white);
+      border-radius: 8px;
+    }
+
+    .brand-mark::after {
+      content: "";
+      position: absolute;
+      left: 8px;
+      top: 18px;
+      width: 34px;
+      height: 4px;
+      background: var(--white);
+      border-radius: 8px;
+    }
+
+    .brand span {
+      font-size: clamp(1rem, 2vw, 1.35rem);
+      text-transform: uppercase;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      font-family: Arial, sans-serif;
+      font-size: 0.95rem;
+    }
+
+    nav a {
+      color: var(--soft-white);
+      transition: color 0.25s ease;
+    }
+
+    nav a:hover {
+      color: var(--gold);
+    }
+
+    .hero {
+      padding: 92px 0 72px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+      background-size: 52px 52px;
+      opacity: 0.35;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .logo-display {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+    }
+
+    .hero-mark {
+      width: 118px;
+      height: 118px;
+      border: 5px solid var(--white);
+      border-radius: 50%;
+      position: relative;
+      box-shadow: 0 0 42px rgba(255, 255, 255, 0.18);
+    }
+
+    .hero-mark::before {
+      content: "";
+      position: absolute;
+      left: 50px;
+      top: -25px;
+      width: 8px;
+      height: 164px;
+      background: var(--white);
+      border-radius: 12px;
+    }
+
+    .hero-mark::after {
+      content: "";
+      position: absolute;
+      left: 17px;
+      top: 42px;
+      width: 75px;
+      height: 8px;
+      background: var(--white);
+      border-radius: 12px;
+    }
+
+    .hero-title {
+      text-align: left;
+    }
+
+    .hero-title h1 {
+      font-size: clamp(2.4rem, 7vw, 5.4rem);
+      line-height: 0.95;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      text-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero-title h1 span {
+      display: block;
+      font-size: clamp(1.8rem, 5vw, 4rem);
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: 22px auto 0;
+      font-family: Arial, sans-serif;
+      color: var(--soft-white);
+      font-size: 1.08rem;
+    }
+
+    .hero-actions {
+      margin-top: 34px;
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 24px;
+      border-radius: 999px;
+      font-family: Arial, sans-serif;
+      font-weight: 700;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--white);
+      color: var(--blue-dark);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.09);
+      color: var(--white);
+    }
+
+    section {
+      padding: 74px 0;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 34px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .section-heading p {
+      margin-top: 10px;
+      color: var(--soft-white);
+      font-family: Arial, sans-serif;
+    }
+
+    .carousel-wrapper {
+      position: relative;
+      border-radius: 28px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .carousel {
+      display: flex;
+      transition: transform 0.55s ease;
+    }
+
+    .slide {
+      min-width: 100%;
+      min-height: 420px;
+      padding: 64px;
+      display: flex;
+      align-items: center;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .slide::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(2, 26, 49, 0.88), rgba(2, 26, 49, 0.35));
+    }
+
+    .slide-content {
+      position: relative;
+      z-index: 2;
+      max-width: 560px;
+    }
+
+    .slide-content small {
+      color: var(--gold);
+      font-family: Arial, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 700;
+    }
+
+    .slide-content h3 {
+      font-size: clamp(2rem, 5vw, 4rem);
+      line-height: 1;
+      margin: 14px 0;
+      text-transform: uppercase;
+    }
+
+    .slide-content p {
+      color: var(--soft-white);
+      font-family: Arial, sans-serif;
+      font-size: 1.05rem;
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(255, 255, 255, 0.9);
+      color: var(--blue-dark);
+      font-size: 1.7rem;
+      cursor: pointer;
+      z-index: 5;
+    }
+
+    .carousel-btn.prev {
+      left: 18px;
+    }
+
+    .carousel-btn.next {
+      right: 18px;
+    }
+
+    .dots {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 18px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      z-index: 6;
+    }
+
+    .dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(255, 255, 255, 0.45);
+      cursor: pointer;
+    }
+
+    .dot.active {
+      background: var(--white);
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 42px;
+    }
+
+    .info-card {
+      background: var(--glass);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 22px;
+      padding: 28px;
+      backdrop-filter: blur(10px);
+    }
+
+    .info-card h3 {
+      font-size: 1.45rem;
+      margin-bottom: 8px;
+      color: var(--white);
+    }
+
+    .info-card p {
+      color: var(--soft-white);
+      font-family: Arial, sans-serif;
+    }
+
+    .videos {
+      background: rgba(0, 0, 0, 0.16);
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .video-card {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 18px 44px rgba(0, 0, 0, 0.2);
+    }
+
+    .video-frame {
+      aspect-ratio: 16 / 9;
+      background:
+        linear-gradient(rgba(6, 41, 70, 0.72), rgba(6, 41, 70, 0.72)),
+        radial-gradient(circle, var(--blue-light), var(--blue-dark));
+      display: grid;
+      place-items: center;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .video-frame iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .video-placeholder {
+      font-family: Arial, sans-serif;
+      color: var(--soft-white);
+    }
+
+    .play-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: var(--white);
+      color: var(--blue-dark);
+      display: grid;
+      place-items: center;
+      margin: 0 auto 12px;
+      font-size: 1.6rem;
+      font-weight: bold;
+    }
+
+    .video-card-content {
+      padding: 20px;
+    }
+
+    .video-card-content h3 {
+      font-size: 1.35rem;
+      margin-bottom: 8px;
+    }
+
+    .video-card-content p {
+      font-family: Arial, sans-serif;
+      color: var(--soft-white);
+      font-size: 0.95rem;
+    }
+
+    .youtube-form {
+      margin-top: 30px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 18px;
+      padding: 14px;
+    }
+
+    .youtube-form input {
+      width: 100%;
+      border: none;
+      border-radius: 999px;
+      padding: 0 18px;
+      min-height: 48px;
+      font-size: 1rem;
+      outline: none;
+      font-family: Arial, sans-serif;
+    }
+
+    .youtube-form button {
+      border: none;
+    }
+
+    footer {
+      padding: 42px 0;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.14);
+      color: var(--soft-white);
+      font-family: Arial, sans-serif;
+    }
+
+    @media (max-width: 860px) {
+      nav {
+        display: none;
+      }
+
+      .hero-title {
+        text-align: center;
+      }
+
+      .slide {
+        padding: 54px 28px;
+        min-height: 430px;
+      }
+
+      .info-grid,
+      .video-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .youtube-form {
+        grid-template-columns: 1fr;
+      }
+    }
+
+/* Articles Section with Video Embeds */
+.articles-section {
+  padding: 2rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.articles-section h2 {
+  font-size: 50px;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #f5f5f5;
+  background-color: var(--primary-color);
+  border-bottom: 2px solid var(--accent-color);
+}
+
+.articles-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.article-card {
+  background-color: var(--light-bg);
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.article-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent-color);
+  background-color: #333;
+}
+
+/* Embedded YouTube Video */
+.article-card iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: none;
+  border-radius: 8px 8px 0 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  margin-bottom: 1rem;
+}
+
+/* Title under video */
+.article-card h3 {
+  font-size: 1.2rem;
+  text-align: center;
+  margin: 0 0 1rem;
+  padding: 0 0.5rem;
+  color: var(--primary-color);
+  background-color: transparent;
+}
+
+
+  </style>
 </head>
+
 <body>
-  <header class="site-header">
-    <img alt="Church Logo" class="logo" src="HBCOGLOGO.png">
-    <div class="container">
-     
- <nav class="main-nav">
-    <a
-    href="https://www.youtube.com/@heavenboundchurch3377"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Subscribe to our YouTube channel"
-  >
-    <i class="fab fa-youtube" aria-hidden="true"></i>
-  </a>
-  <a href="/index.html">Home</a>
-  <a href="/pages/webilileve.html">What We Believe</a>
-  <a href="/pages/debbie.html">Meet Our Founders</a>
-   <a href="/pages/january.html">News</a>
-   <a href="/pages/Calendar.html">Calendar</a>
-   <a href="https://churchofgod.org/">Church of God</a>
-     <a
-    href="https://www.facebook.com/profile.php?id=100064533316230"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Follow us on Facebook"
-  >
-    <!-- inline SVG gives you full styling control -->
-    <svg
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      aria-hidden="true"
-      focusable="false"
-    >
-      <path
-        d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.99 3.66 9.12 8.44 9.88v-6.99H7.9v-2.9h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.23.2 2.23.2v2.45h-1.25c-1.23 0-1.61.77-1.61 1.56v1.88h2.74l-.44 2.9h-2.3v6.99C18.34 21.12 22 16.99 22 12z"
-        fill="currentColor"
-      />
-    </svg>
-  </a>
-  </nav>
+  <header>
+    <div class="container navbar">
+      <a href="#" class="brand">
+        
+        <span>Heaven Bound</span>
+      </a>
+
+      <nav>
+        <a href="/index.">Home</a>
+        <a href="/pages/webilileve.html">What We Believe</a>
+        <a href="/pages/debbie.html">Meet Our Founders</a>
+        <a href="https://www.youtube.com/@heavenboundchurch3377">Videos</a>
+        <a href="/pages/january.html">News</a>
+        <a href="/pages/Calendar.html">Calendar</a>
+        <a href="https://churchofgod.org/">Church of God</a>
+
+      </nav>
     </div>
   </header>
 
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-content">
+        <div class="logo-display">
+          
 
-<section class="church-photo">
-  
-  
- <div class="carousel">
-    <div class="slides" id="slides">
-      <div class="slide"><img src="Church1.png" alt="Slide 1"></div>
-      <div class="slide"><a href="https://robofcarrollton.org/"><img src="ROC1.png" alt="Slide 2"></a></div>
-      <div class="slide"><a href="https://heavenboundchurchofgod.com/pages/saved"><img src="saved.png" alt="Slide 3"></a></div>
-      <div class="slide"><a href="https://www.youtube.com/watch?v=NHIl6IMCc5s&t=13s"><img src="sundaynight.png" alt="Slide 4"></a></div>
-      <div class="slide"><a href="https://heavenboundchurchofgod.com/pages/children"><img src="Child3.png" alt="Slide 5"></a></div>
-      <div class="slide"><a href="https://www.youtube.com/@heavenboundchurch3377"><img src="heavenboundyoutube.png" alt="Slide 6"></a></div>
-      <div class="slide"><a href="https://www.facebook.com/groups/626364787227293"><img src="health.png" alt="Slide 7"></a></div>
+          <div class="hero-title">
+            <h1>
+              Heaven Bound
+              <span>Church of God</span>
+            </h1>
+          </div>
+        </div>
 
-    </div>
-    <div class="controls">
-      <button class="control-btn" id="prev">&#10094;</button>
-      <button class="control-btn" id="next">&#10095;</button>
-    </div>
-  </div>
+        <p>
+          A welcoming place of worship, fellowship, prayer, and spiritual growth.
+          Join us as we lift up the name of Jesus. Heaven Bound Church of God is a church where everybody is somebody!
+        </p>
 
-  <script>
-    const slides = document.getElementById('slides');
-    const totalSlides = slides.children.length;
-    let index = 0;
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#services">Service Times</a>
+          <a class="btn btn-secondary" href="https://www.facebook.com/profile.php?id=100064533316230">Watch Online</a>
+        </div>
+      </div>
+    </section>
 
-    const showSlide = (i) => {
-      index = (i + totalSlides) % totalSlides;
-      slides.style.transform = `translateX(-${index * 100}%)`;
-    }
+    <section id="events">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Church Highlights</h2>
+          <p>Stay connected with worship, teaching, and community events.</p>
+        </div>
 
-    document.getElementById('prev').addEventListener('click', () => showSlide(index - 1));
-    document.getElementById('next').addEventListener('click', () => showSlide(index + 1));
+        <div class="carousel-wrapper">
+          <button class="carousel-btn prev" aria-label="Previous slide">&#8249;</button>
 
-    // Auto-play
-    setInterval(() => {
-      showSlide(index + 1);
-    }, 5000);
-  </script>
+          <div class="carousel" id="carousel">
+            <article class="slide" style="background-image: linear-gradient(135deg, #083d66, #021a31);">
+              <div class="slide-content">
+                <small>Sunday Worship</small>
+                <h3>Experience God’s Presence</h3>
+                <p>
+                  Join us every Sunday for worship, prayer, and a powerful message
+                  from the Word of God.
+                </p>
+              </div>
+            </article>
 
+            <article class="slide" style="background-image: linear-gradient(135deg, #0b5f8f, #03223b);">
+              <div class="slide-content">
+                <small>Do not suffer the little ones to come unto me</small>
+                <h3><a hred="https://heavenboundchurchofgod.com/pages/children">Children's Church</a></h3>
+                <p>
+                 Our Children’s Church is a safe, welcoming, and joyful place where kids can learn about God’s love in a way they can understand. Through Bible lessons, songs, crafts, games, and prayer.
+                </p>
+              </div>
+            </article>
 
-</section>
-  
- 
-  
+            <article class="slide" style="background-image: linear-gradient(135deg, #0c486f, #061426);">
+              <div class="slide-content">
+                <small>Community</small>
+                <h3><a href="https://www.facebook.com/groups/626364787227293">Journey of Change</a></h3>
+                <p>
+                 Walk in faith, live in health.
+                </p>
+              </div>
+            </article>
+          </div>
 
+          <button class="carousel-btn next" aria-label="Next slide">&#8250;</button>
 
+          <div class="dots" id="dots" aria-label="Carousel navigation"></div>
+        </div>
 
+        <div class="info-grid" id="services">
+          <div class="info-card">
+            <h3>Service</h3>
+            <p>Sunday MorningWorship Service — 11:00 AM</p>
+            <p>Sunday Evening Worship Service — 5:30 PM</p>
+            <p>Wednesday Evening — 6:00 PM</p>
+          </div>
 
+        
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
+         
+          </div>
+        </div>
+      </div>
+    </section>
 <section id="blog" class="articles-section">
   <h2>Recent Videos</h2>
   <div class="articles-container">
 
-
-
-
-    <article class="article-card">
+<article class="article-card">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/V_j4QbmO1dI?si=PHpUx6BFlwcPhdfy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
      </article>
     
@@ -166,68 +723,105 @@
 <iframe width="560" height="315" src="https://www.youtube.com/embed/TJRSXBhyZJk?si=le6coMO60IA-yAC0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
   </article>   
 
-
-
-
-
-
-
-
- 
-
-  </div>
+</div>
 </section>
+    
+  </main>
 
-
-
-
-
-
-</div></section>
-
-
-
-
-
-
-  <section class="info">
+  <footer id="contact">
     <div class="container">
-      <div class="times">
-        <h3>Meeting Times</h3>
-        <p>Sunday: 11:00 AM AND 5:30 PM<br>Wednesday: 6:30 PM<br>Join our live feed on our <a href="https://www.facebook.com/profile.php?id=100064533316230">Facebook</a> page for every service</p>
-      </div>
-      <div class="contact">
-        <h3>Visit Us</h3>
-        <p><a href="https://www.google.com/maps/place/760+Centralhatchee+Pkwy,+Franklin,+GA+30217/@33.3700862,-85.1055626,17z/data=!3m1!4b1!4m6!3m5!1s0x888b3789627f54df:0x55676f671643ac32!8m2!3d33.3700862!4d-85.1029877!16s%2Fg%2F11fx0rcc5f?entry=ttu&g_ep=EgoyMDI1MDcxNS4xIKXMDSoASAFQAw%3D%3D">760 Centralhatchee Pkwy, Franklin, GA 30217</a></p>
-        <p><a href="tel:+17066753224"class="phone-link">(706) 675-3224</a></p>
-      </div>
-    </div>
-  </section>
-
-  <footer class="site-footer">
-    <div class="container">
-      <p>&copy; 2025 Heaven Bound Church of God. Powered by love.</p>
+      <p>&copy; <span id="year"></span> Heaven Bound Church of God. All Rights Reserved.</p>
+      <p><a href="https://www.google.com/maps/place/760+Centralhatchee+Pkwy,+Franklin,+GA+30217" target="_blank" rel="noopener noreferrer">760 Centralhatchee Pkwy, Franklin, GA 30217</a></p>
+      <p><a href="tel:+17066753224" class="phone-link">(706) 675-3224</a></p>
     </div>
   </footer>
+
+  <script>
+  const carousel = document.getElementById("carousel");
+  const dotsContainer = document.getElementById("dots");
+  const slides = Array.from(document.querySelectorAll(".slide"));
+  const prevButton = document.querySelector(".carousel-btn.prev");
+  const nextButton = document.querySelector(".carousel-btn.next");
+
+  let currentSlide = 0;
+  let carouselTimer = null;
+
+  function createDots() {
+    slides.forEach((_, index) => {
+      const dot = document.createElement("button");
+      dot.className = "dot";
+      dot.type = "button";
+      dot.setAttribute("aria-label", `Go to slide ${index + 1}`);
+
+      dot.addEventListener("click", () => {
+        goToSlide(index);
+        restartCarouselTimer();
+      });
+
+      dotsContainer.appendChild(dot);
+    });
+  }
+
+  function updateCarousel() {
+    carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+    document.querySelectorAll(".dot").forEach((dot, index) => {
+      dot.classList.toggle("active", index === currentSlide);
+    });
+  }
+
+  function goToSlide(index) {
+    currentSlide = (index + slides.length) % slides.length;
+    updateCarousel();
+  }
+
+  function nextSlide() {
+    goToSlide(currentSlide + 1);
+  }
+
+  function prevSlide() {
+    goToSlide(currentSlide - 1);
+  }
+
+  function startCarouselTimer() {
+    carouselTimer = window.setInterval(nextSlide, 5000);
+  }
+
+  function restartCarouselTimer() {
+    window.clearInterval(carouselTimer);
+    startCarouselTimer();
+  }
+
+  prevButton.addEventListener("click", () => {
+    prevSlide();
+    restartCarouselTimer();
+  });
+
+  nextButton.addEventListener("click", () => {
+    nextSlide();
+    restartCarouselTimer();
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "ArrowLeft") {
+      prevSlide();
+      restartCarouselTimer();
+    }
+
+    if (event.key === "ArrowRight") {
+      nextSlide();
+      restartCarouselTimer();
+    }
+  });
+
+  createDots();
+  updateCarousel();
+  startCarouselTimer();
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
