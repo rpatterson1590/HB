@@ -1,161 +1,775 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Heaven Bound Church of God</title>
-  <link rel="stylesheet" href="webelileve.css">
-  <link rel="icon" sizes="32x32" href="/favicon-32.png" type="dove.jpg">
-<link rel="icon" sizes="192x192" href="/favicon-192.png" type="dove.jpg">
-  <figcaption class="caption">Heaven Bound Church of God - Where Everybody is Somebody!</figcaption>
-  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<link rel="shortcut icon" href="/favicon.ico" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-<link rel="manifest" href="/site.webmanifest" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>What We Believe | Heaven Bound Church of God</title>
+
+  <style>
+    :root {
+      --blue-dark: #062946;
+      --blue-main: #073b63;
+      --blue-light: #0d5c8e;
+      --white: #ffffff;
+      --gold: #d8b35a;
+      --soft-white: rgba(255, 255, 255, 0.86);
+      --muted-white: rgba(255, 255, 255, 0.68);
+      --glass: rgba(255, 255, 255, 0.1);
+      --border: rgba(255, 255, 255, 0.14);
+      --shadow: rgba(0, 0, 0, 0.28);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      background:
+        radial-gradient(circle at top left, rgba(22, 105, 158, 0.55), transparent 35%),
+        linear-gradient(135deg, var(--blue-dark), var(--blue-main), #021a31);
+      color: var(--white);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(16px);
+      background: rgba(2, 26, 49, 0.82);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 0;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .brand-mark {
+      width: 48px;
+      height: 48px;
+      border: 3px solid var(--white);
+      border-radius: 50%;
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .brand-mark::before {
+      content: "";
+      position: absolute;
+      left: 19px;
+      top: -12px;
+      width: 4px;
+      height: 70px;
+      background: var(--white);
+      border-radius: 8px;
+    }
+
+    .brand-mark::after {
+      content: "";
+      position: absolute;
+      left: 7px;
+      top: 17px;
+      width: 31px;
+      height: 4px;
+      background: var(--white);
+      border-radius: 8px;
+    }
+
+    .brand span {
+      font-size: clamp(1rem, 2vw, 1.35rem);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      font-family: Arial, sans-serif;
+      font-size: 0.95rem;
+    }
+
+    nav a {
+      color: var(--soft-white);
+      transition: color 0.25s ease;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: var(--gold);
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--white);
+      font-size: 1.35rem;
+      cursor: pointer;
+    }
+
+    .hero {
+      padding: 96px 0 76px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+      background-size: 52px 52px;
+      opacity: 0.35;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      color: var(--gold);
+      font-family: Arial, sans-serif;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 14px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.7rem, 7vw, 5.5rem);
+      line-height: 0.95;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      text-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero p {
+      max-width: 780px;
+      margin: 24px auto 0;
+      font-family: Arial, sans-serif;
+      color: var(--soft-white);
+      font-size: 1.08rem;
+    }
+
+    .hero-actions {
+      margin-top: 34px;
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 24px;
+      border-radius: 999px;
+      font-family: Arial, sans-serif;
+      font-weight: 700;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--white);
+      color: var(--blue-dark);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.09);
+      color: var(--white);
+    }
+
+    section {
+      padding: 74px 0;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 38px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .section-heading p {
+      margin-top: 10px;
+      color: var(--soft-white);
+      font-family: Arial, sans-serif;
+    }
+
+    .belief-intro {
+      background:
+        linear-gradient(90deg, rgba(2, 26, 49, 0.88), rgba(2, 26, 49, 0.48)),
+        linear-gradient(135deg, #083d66, #021a31);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: clamp(30px, 5vw, 54px);
+      box-shadow: 0 24px 70px var(--shadow);
+      margin-bottom: 28px;
+      text-align: center;
+    }
+
+    .belief-intro h2 {
+      font-size: clamp(2rem, 5vw, 4rem);
+      text-transform: uppercase;
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+
+    .belief-intro p {
+      max-width: 820px;
+      margin: auto;
+      color: var(--soft-white);
+      font-family: Arial, sans-serif;
+      font-size: 1.06rem;
+    }
+
+    .belief-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .belief-card {
+      background: var(--glass);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: 0 18px 44px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(10px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .belief-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--gold), rgba(216, 179, 90, 0));
+    }
+
+    .belief-number {
+      display: inline-grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.12);
+      color: var(--gold);
+      font-family: Arial, sans-serif;
+      font-weight: 800;
+      margin-bottom: 16px;
+      border: 1px solid rgba(216, 179, 90, 0.35);
+    }
+
+    .belief-card h3 {
+      font-size: clamp(1.35rem, 3vw, 2rem);
+      line-height: 1.12;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .belief-card p {
+      color: var(--soft-white);
+      font-family: Arial, sans-serif;
+      font-size: 1rem;
+      margin-bottom: 16px;
+    }
+
+    .scripture-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      list-style: none;
+    }
+
+    .scripture-list a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      color: var(--muted-white);
+      font-family: Arial, sans-serif;
+      font-size: 0.88rem;
+      transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    }
+
+    .scripture-list a:hover {
+      background: rgba(216, 179, 90, 0.18);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+
+    .cta-section {
+      padding-top: 0;
+    }
+
+    .cta-card {
+      background:
+        radial-gradient(circle at top left, rgba(216, 179, 90, 0.22), transparent 32%),
+        rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: clamp(30px, 5vw, 54px);
+      text-align: center;
+      box-shadow: 0 24px 70px var(--shadow);
+    }
+
+    .cta-card h2 {
+      font-size: clamp(2rem, 5vw, 3.6rem);
+      text-transform: uppercase;
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+
+    .cta-card p {
+      max-width: 760px;
+      margin: 0 auto 26px;
+      color: var(--soft-white);
+      font-family: Arial, sans-serif;
+    }
+
+    footer {
+      padding: 42px 0;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.14);
+      color: var(--soft-white);
+      font-family: Arial, sans-serif;
+    }
+
+    footer p {
+      margin: 7px 0;
+    }
+
+    footer a:hover {
+      color: var(--gold);
+    }
+
+    @media (max-width: 940px) {
+      .menu-toggle {
+        display: inline-grid;
+        place-items: center;
+      }
+
+      nav {
+        position: absolute;
+        top: 84px;
+        left: 4%;
+        right: 4%;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 12px;
+        border-radius: 20px;
+        background: rgba(2, 26, 49, 0.96);
+        border: 1px solid var(--border);
+        box-shadow: 0 18px 44px rgba(0, 0, 0, 0.28);
+      }
+
+      nav.open {
+        display: flex;
+      }
+
+      nav a {
+        padding: 13px 14px;
+        border-radius: 14px;
+      }
+
+      nav a:hover,
+      nav a.active {
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      .belief-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .hero {
+        padding: 74px 0 56px;
+      }
+
+      .brand-mark {
+        display: none;
+      }
+
+      .belief-card {
+        padding: 24px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <header class="site-header">
-    <img alt="Church Logo" class="logo" src="HBCOGLOGO.png">
-    <div class="container">
-     
- <nav class="main-nav">
-    <a
-    href="https://www.youtube.com/@heavenboundchurch3377"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Subscribe to our YouTube channel"
-  >
-    <i class="fab fa-youtube" aria-hidden="true"></i>
-  </a>
-  <a href="https://heavenboundchurchofgod.com/">Home</a>
-  <a href="/pages/webilileve.html">What We Believe</a>
-  <a href="/pages/debbie.html">Meet Our Founders</a>
-   <a href="/pages/january.html">News</a>
-   <a href="/pages/Calendar.html">Calendar</a>
-   <a href="https://churchofgod.org/">Church of God</a>
-     <a
-    href="https://www.facebook.com/profile.php?id=100064533316230"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Follow us on Facebook"
-  >
-    <!-- inline SVG gives you full styling control -->
-    <svg
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      aria-hidden="true"
-      focusable="false"
-    >
-      <path
-        d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.99 3.66 9.12 8.44 9.88v-6.99H7.9v-2.9h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.23.2 2.23.2v2.45h-1.25c-1.23 0-1.61.77-1.61 1.56v1.88h2.74l-.44 2.9h-2.3v6.99C18.34 21.12 22 16.99 22 12z"
-        fill="currentColor"
-      />
-    </svg>
-  </a>
-  </nav>
+  <header>
+    <div class="container navbar">
+      <a href="/" class="brand" aria-label="Heaven Bound Church of God Home">
+        
+        <span>Heaven Bound</span>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open navigation">
+        ☰
+      </button>
+
+      <nav id="mainNav" aria-label="Main navigation">
+        <a href="/">Home</a>
+        <a href="/pages/webilileve.html" class="active">What We Believe</a>
+        <a href="/pages/debbie.html">Meet Our Founders</a>
+        <a href="https://www.youtube.com/@heavenboundchurch3377">Videos</a>
+        <a href="/pages/january.html">News</a>
+        <a href="/pages/Calendar.html">Calendar</a>
+        <a href="https://churchofgod.org/">Church of God</a>
+      </nav>
     </div>
   </header>
 
+  <main>
+    <section class="hero">
+      <div class="container hero-content">
+        <span class="eyebrow">Our Statement of Faith</span>
 
-<main class="belief-page">
-  <div class="container">
-    <h2>What We Believe</h2>
-    <div class="belief-wrapper">
+        <h1>What We Believe</h1>
+
+        <p>
+          At Heaven Bound Church of God, our faith is rooted in the Word of God,
+          the saving power of Jesus Christ, the work of the Holy Spirit, and the
+          blessed hope of His return.
+        </p>
+
     
-
-      <div class="belief-list-container">
-        <h3>Our Statement of Faith</h3>
-        <ul class="belief-list">
-          <li>
-            <h2>In the verbal inspiration of the Bible.</h2>
-           <p><strong><a href="https://www.biblegateway.com/passage/?search=2%20Timothy%203%3A16&version=KJV">2 Timothy 3:16</a></strong> — "All scripture is given by inspiration of God, and is profitable for doctrine, for reproof, for correction, for instruction in righteousness"</p>
-          </li>
-          <li>
-            <h2>In one God eternally existing in three persons: the Father, Son, and Holy Ghost.</h2>
-             <p><strong><a href="https://www.biblegateway.com/passage/?search=1%20John%205%3A7&version=KJV">1 John 5:7</a></strong> — "For there are three that bear record in heaven, the Father, the Word, and the Holy Ghost: and these three are one."</p>
-          </li>
-
-          <li><h2>That Jesus Christ is the only begotten Son, born of the Virgin Mary, crucified, risen, and ascended.</h2>
-             <p><strong><a href="https://www.biblegateway.com/passage/?search=John%203%3A16&version=KJV">John 3:16</a></strong> — "For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life."</p>
-  <p><strong><a href="https://www.biblegateway.com/passage/?search=Matthew%201%3A23&version=KJV">Matthew 1:23</a></strong> — "Behold, a virgin shall be with child, and shall bring forth a son, and they shall call his name Emmanuel, which being interpreted is, God with us."</p>
-  <p><strong><a href="https://www.biblegateway.com/passage/?search=Luke%2023%3A33&version=KJV">Luke 23:33</a></strong> — "And when they were come to the place, which is called Calvary, there they crucified him..."</p>
-  <p><strong><a href="https://www.biblegateway.com/passage/?search=Luke%2024%3A6-7&version=KJV">Luke 24:6-7</a></strong> — "He is not here, but is risen: remember how he spake unto you when he was yet in Galilee..."</p>
-  <p><strong><a href="https://www.biblegateway.com/passage/?search=Acts%201%3A9&version=KJV">Acts 1:9</a></strong> — "And when he had spoken these things, while they beheld, he was taken up; and a cloud received him out of their sight."</p>
-          </li>
-
-          <li><h2>That all have sinned and must repent for forgiveness of sins.</h2>
-            <p><strong><a href="https://www.biblegateway.com/passage/?search=Romans%203%3A23&version=KJV">Romans 3:23</a></strong> — "For all have sinned, and come short of the glory of God;"</p>
-  <p><strong><a href="https://www.biblegateway.com/passage/?search=Luke%2013%3A3&version=KJV">Luke 13:3</a></strong> — "I tell you, Nay: but, except ye repent, ye shall all likewise perish."</p>
-  <p><strong><a href="https://www.biblegateway.com/passage/?search=Acts%203%3A19&version=KJV">Acts 3:19</a></strong> — "Repent ye therefore, and be converted, that your sins may be blotted out..."</p>
-</li>
-          <li><h2>That salvation and new birth come through faith in the blood of Jesus Christ.</h2>
-          <p><strong><a href="https://www.biblegateway.com/passage/?search=Romans%205%3A9&version=KJV">Romans 5:9</a></strong> — "Much more then, being now justified by his blood, we shall be saved from wrath through him."</p>
-  <p><strong><a href="https://www.biblegateway.com/passage/?search=Ephesians%201%3A7&version=KJV">Ephesians 1:7</a></strong> — "In whom we have redemption through his blood, the forgiveness of sins, according to the riches of his grace;"</p>
-  <p><strong><a href="https://www.biblegateway.com/passage/?search=John%203%3A3&version=KJV">John 3:3</a></strong> — "Jesus answered and said unto him, Verily, verily, I say unto thee, Except a man be born again, he cannot see the kingdom of God."</p>
-  <p><strong><a href="https://www.biblegateway.com/passage/?search=John%201%3A12%E2%80%9313&version=KJV">John 1:12–13</a></strong> — "But as many as received him, to them gave he power to become the sons of God... Which were born, not of blood, nor of the will of the flesh, nor of the will of man, but of God."</p>
-          </li>
-          <li><h2>That sanctification follows the new birth through the Word and the Spirit.</h2>
-             <p><strong><a href="https://www.biblegateway.com/passage/?search=John%2017%3A17&version=KJV">John 17:17</a></strong> — "Sanctify them through thy truth: thy word is truth."</p>
-  <p><strong><a href="https://www.biblegateway.com/passage/?search=1%20Thessalonians%204%3A3&version=KJV">1 Thessalonians 4:3</a></strong> — "For this is the will of God, even your sanctification, that ye should abstain from fornication:"</p>
-  <p><strong><a href="https://www.biblegateway.com/passage/?search=2%20Thessalonians%202%3A13&version=KJV">2 Thessalonians 2:13</a></strong> — "God hath from the beginning chosen you to salvation through sanctification of the Spirit and belief of the truth:"</p>
-          </li>
-          <li><h2>That holiness is God’s standard for His people.</h2>
-             <p><strong><a href="https://www.biblegateway.com/passage/?search=Hebrews%2012%3A14&version=KJV">Hebrews 12:14</a></strong> — "Follow peace with all men, and holiness, without which no man shall see the Lord:"</p>
-  <p><strong><a href="https://www.biblegateway.com/passage/?search=1%20Peter%201%3A15%E2%80%9316&version=KJV">1 Peter 1:15–16</a></strong> — "But as he which hath called you is holy, so be ye holy in all manner of conversation; Because it is written, Be ye holy; for I am holy."</p>
-  <p><strong><a href="https://www.biblegateway.com/passage/?search=2%20Corinthians%207%3A1&version=KJV">2 Corinthians 7:1</a></strong> — "Having therefore these promises, dearly beloved, let us cleanse ourselves from all filthiness of the flesh and spirit, perfecting holiness in the fear of God."</p>
-          </li>
-          <li><h2>In the baptism of the Holy Ghost after a clean heart.</h2>
-          <p><strong><a href="https://www.biblegateway.com/passage/?search=Acts%2015%3A8%E2%80%939&version=KJV">Acts 15:8–9</a></strong> — "And God, which knoweth the hearts, bare them witness, giving them the Holy Ghost, even as he did unto us; And put no difference between us and them, purifying their hearts by faith."</p>
-  <p><strong><a href="https://www.biblegateway.com/passage/?search=Acts%202%3A38&version=KJV">Acts 2:38</a></strong> — "Then Peter said unto them, Repent, and be baptized every one of you in the name of Jesus Christ for the remission of sins, and ye shall receive the gift of the Holy Ghost."</p>
-  <p><strong><a href="https://www.biblegateway.com/passage/?search=Luke%2011%3A13&version=KJV">Luke 11:13</a></strong> — "If ye then, being evil, know how to give good gifts unto your children: how much more shall your heavenly Father give the Holy Spirit to them that ask him?"</p>
-          </li>
-          <li><h2>In speaking in tongues as initial evidence of Holy Ghost baptism.</h2>
-            <p><strong><a href="https://www.biblegateway.com/passage/?search=Acts%202%3A4&version=KJV">Acts 2:4</a></strong> — "And they were all filled with the Holy Ghost, and began to speak with other tongues, as the Spirit gave them utterance."</p>
-  <p><strong><a href="https://www.biblegateway.com/passage/?search=Acts%2010%3A44%E2%80%9346&version=KJV">Acts 10:44–46</a></strong> — "While Peter yet spake these words, the Holy Ghost fell on all them which heard the word... For they heard them speak with tongues, and magnify God."</p>
-  <p><strong><a href="https://www.biblegateway.com/passage/?search=Acts%2019%3A6&version=KJV">Acts 19:6</a></strong> — "And when Paul had laid his hands upon them, the Holy Ghost came on them; and they spake with tongues, and prophesied."</p>
-          </li>
-          <li><h2>In water baptism by immersion in the name of the Father, Son, and Holy Ghost.</h2>
-          <p><strong><a href="https://www.biblegateway.com/passage/?search=Matthew%2028%3A19&version=KJV">Matthew 28:19</a></strong> — "Go ye therefore, and teach all nations, baptizing them in the name of the Father, and of the Son, and of the Holy Ghost:"</p>
-  <p><strong><a href="https://www.biblegateway.com/passage/?search=Romans%206%3A4&version=KJV">Romans 6:4</a></strong> — "Therefore we are buried with him by baptism into death... we also should walk in newness of life."</p>
-  <p><strong><a href="https://www.biblegateway.com/passage/?search=Acts%208%3A38&version=KJV">Acts 8:38</a></strong> — "And he commanded the chariot to stand still... and he baptized him."</p>
-          </li>
-          <li><h2>In divine healing through the Atonement.</h2>
-           <p><strong><a href="https://www.biblegateway.com/passage/?search=Isaiah%2053%3A5&version=KJV">Isaiah 53:5</a></strong> — "But he was wounded for our transgressions... and with his stripes we are healed."</p>
-  <p><strong><a href="https://www.biblegateway.com/passage/?search=Matthew%208%3A16%E2%80%9317&version=KJV">Matthew 8:16–17</a></strong> — "Himself took our infirmities, and bare our sicknesses."</p>
-  <p><strong><a href="https://www.biblegateway.com/passage/?search=James%205%3A14%E2%80%9315&version=KJV">James 5:14–15</a></strong> — "Is any sick among you? let him call for the elders of the church... and the prayer of faith shall save the sick."</p>
-          </li>
-          <li><h2>In the Lord’s Supper and washing of the saints’ feet.</h2>
-          <p><strong><a href="https://www.biblegateway.com/passage/?search=Luke%2022%3A19%E2%80%9320&version=KJV">Luke 22:19–20</a></strong> — "This is my body which is given for you: this do in remembrance of me... This cup is the new testament in my blood."</p>
-  <p><strong><a href="https://www.biblegateway.com/passage/?search=1%20Corinthians%2011%3A24%E2%80%9326&version=KJV">1 Corinthians 11:24–26</a></strong> — "For as often as ye eat this bread, and drink this cup, ye do shew the Lord's death till he come."</p>
-  <p><strong><a href="https://www.biblegateway.com/passage/?search=John%2013%3A14%E2%80%9315&version=KJV">John 13:14–15</a></strong> — "If I then, your Lord and Master, have washed your feet; ye also ought to wash one another’s feet."</p>
-          </li>
-          <li><h2>In the premillennial second coming of Jesus Christ.</h2>
-          <p><strong><a href="https://www.biblegateway.com/passage/?search=1%20Thessalonians%204%3A16%E2%80%9317&version=KJV">1 Thessalonians 4:16–17</a></strong> — "For the Lord himself shall descend from heaven with a shout... and the dead in Christ shall rise first."</p>
-  <p><strong><a href="https://www.biblegateway.com/passage/?search=Revelation%2020%3A4%E2%80%936&version=KJV">Revelation 20:4–6</a></strong> — "And they lived and reigned with Christ a thousand years... Blessed and holy is he that hath part in the first resurrection."</p>
-  <p><strong><a href="https://www.biblegateway.com/passage/?search=Acts%201%3A11&version=KJV">Acts 1:11</a></strong> — "This same Jesus... shall so come in like manner as ye have seen him go into heaven."</p>
-          </li>
-          <li><h2>In eternal life for the righteous and eternal punishment for the wicked.</h2>
-           <p><strong><a href="https://www.biblegateway.com/passage/?search=Matthew%2025%3A46&version=KJV">Matthew 25:46</a></strong> — "And these shall go away into everlasting punishment: but the righteous into life eternal."</p>
-  <p><strong><a href="https://www.biblegateway.com/passage/?search=John%205%3A28%E2%80%9329&version=KJV">John 5:28–29</a></strong> — "They that have done good, unto the resurrection of life; and they that have done evil, unto the resurrection of damnation."</p>
-  <p><strong><a href="https://www.biblegateway.com/passage/?search=Daniel%2012%3A2&version=KJV">Daniel 12:2</a></strong> — "Some to everlasting life, and some to shame and everlasting contempt."</p>
-</li>
-        
-
-        </ul>
       </div>
-    </div>
-  </div>
-</main>
+    </section>
 
+    <section id="beliefs">
+      <div class="container">
+        <div class="belief-intro">
+          <h2>Built on God’s Word</h2>
+          <p>
+            These beliefs guide our worship, teaching, ministry, and daily walk
+            with Christ. Each statement is supported by Scripture and points back
+            to the truth, grace, and holiness of God.
+          </p>
+        </div>
 
-  <footer class="site-footer">
+        <div class="belief-grid">
+          <article class="belief-card">
+            <div class="belief-number">1</div>
+            <h3>The Bible</h3>
+            <p>
+              We believe in the verbal inspiration of the Bible and accept God’s
+              Word as the foundation for doctrine, correction, instruction, and
+              Christian living.
+            </p>
+            <ul class="scripture-list">
+              <li><a href="https://www.biblegateway.com/passage/?search=2%20Timothy%203%3A16&version=KJV" target="_blank" rel="noopener noreferrer">2 Timothy 3:16</a></li>
+            </ul>
+          </article>
+
+          <article class="belief-card">
+            <div class="belief-number">2</div>
+            <h3>One God</h3>
+            <p>
+              We believe in one God eternally existing in three persons: the
+              Father, the Son, and the Holy Ghost.
+            </p>
+            <ul class="scripture-list">
+              <li><a href="https://www.biblegateway.com/passage/?search=1%20John%205%3A7&version=KJV" target="_blank" rel="noopener noreferrer">1 John 5:7</a></li>
+            </ul>
+          </article>
+
+          <article class="belief-card">
+            <div class="belief-number">3</div>
+            <h3>Jesus Christ</h3>
+            <p>
+              We believe Jesus Christ is the only begotten Son of God, born of
+              the Virgin Mary, crucified, risen from the dead, and ascended into
+              heaven.
+            </p>
+            <ul class="scripture-list">
+              <li><a href="https://www.biblegateway.com/passage/?search=John%203%3A16&version=KJV" target="_blank" rel="noopener noreferrer">John 3:16</a></li>
+              <li><a href="https://www.biblegateway.com/passage/?search=Matthew%201%3A23&version=KJV" target="_blank" rel="noopener noreferrer">Matthew 1:23</a></li>
+              <li><a href="https://www.biblegateway.com/passage/?search=Luke%2023%3A33&version=KJV" target="_blank" rel="noopener noreferrer">Luke 23:33</a></li>
+              <li><a href="https://www.biblegateway.com/passage/?search=Luke%2024%3A6-7&version=KJV" target="_blank" rel="noopener noreferrer">Luke 24:6–7</a></li>
+              <li><a href="https://www.biblegateway.com/passage/?search=Acts%201%3A9&version=KJV" target="_blank" rel="noopener noreferrer">Acts 1:9</a></li>
+            </ul>
+          </article>
+
+          <article class="belief-card">
+            <div class="belief-number">4</div>
+            <h3>Repentance</h3>
+            <p>
+              We believe all have sinned and must repent, turning to God for
+              forgiveness, cleansing, and restoration.
+            </p>
+            <ul class="scripture-list">
+              <li><a href="https://www.biblegateway.com/passage/?search=Romans%203%3A23&version=KJV" target="_blank" rel="noopener noreferrer">Romans 3:23</a></li>
+              <li><a href="https://www.biblegateway.com/passage/?search=Luke%2013%3A3&version=KJV" target="_blank" rel="noopener noreferrer">Luke 13:3</a></li>
+              <li><a href="https://www.biblegateway.com/passage/?search=Acts%203%3A19&version=KJV" target="_blank" rel="noopener noreferrer">Acts 3:19</a></li>
+            </ul>
+          </article>
+
+          <article class="belief-card">
+            <div class="belief-number">5</div>
+            <h3>Salvation and New Birth</h3>
+            <p>
+              We believe salvation and the new birth come through faith in the
+              blood of Jesus Christ, by grace and through the redeeming work of
+              the Lord.
+            </p>
+            <ul class="scripture-list">
+              <li><a href="https://www.biblegateway.com/passage/?search=Romans%205%3A9&version=KJV" target="_blank" rel="noopener noreferrer">Romans 5:9</a></li>
+              <li><a href="https://www.biblegateway.com/passage/?search=Ephesians%201%3A7&version=KJV" target="_blank" rel="noopener noreferrer">Ephesians 1:7</a></li>
+              <li><a href="https://www.biblegateway.com/passage/?search=John%203%3A3&version=KJV" target="_blank" rel="noopener noreferrer">John 3:3</a></li>
+              <li><a href="https://www.biblegateway.com/passage/?search=John%201%3A12-13&version=KJV" target="_blank" rel="noopener noreferrer">John 1:12–13</a></li>
+            </ul>
+          </article>
+
+          <article class="belief-card">
+            <div class="belief-number">6</div>
+            <h3>Sanctification</h3>
+            <p>
+              We believe sanctification follows the new birth and is worked in
+              the believer through the Word of God and the Spirit of God.
+            </p>
+            <ul class="scripture-list">
+              <li><a href="https://www.biblegateway.com/passage/?search=John%2017%3A17&version=KJV" target="_blank" rel="noopener noreferrer">John 17:17</a></li>
+              <li><a href="https://www.biblegateway.com/passage/?search=1%20Thessalonians%204%3A3&version=KJV" target="_blank" rel="noopener noreferrer">1 Thessalonians 4:3</a></li>
+              <li><a href="https://www.biblegateway.com/passage/?search=2%20Thessalonians%202%3A13&version=KJV" target="_blank" rel="noopener noreferrer">2 Thessalonians 2:13</a></li>
+            </ul>
+          </article>
+
+          <article class="belief-card">
+            <div class="belief-number">7</div>
+            <h3>Holiness</h3>
+            <p>
+              We believe holiness is God’s standard for His people and that
+              believers are called to live in purity, obedience, and reverence
+              before the Lord.
+            </p>
+            <ul class="scripture-list">
+              <li><a href="https://www.biblegateway.com/passage/?search=Hebrews%2012%3A14&version=KJV" target="_blank" rel="noopener noreferrer">Hebrews 12:14</a></li>
+              <li><a href="https://www.biblegateway.com/passage/?search=1%20Peter%201%3A15-16&version=KJV" target="_blank" rel="noopener noreferrer">1 Peter 1:15–16</a></li>
+              <li><a href="https://www.biblegateway.com/passage/?search=2%20Corinthians%207%3A1&version=KJV" target="_blank" rel="noopener noreferrer">2 Corinthians 7:1</a></li>
+            </ul>
+          </article>
+
+          <article class="belief-card">
+            <div class="belief-number">8</div>
+            <h3>The Holy Ghost</h3>
+            <p>
+              We believe in the baptism of the Holy Ghost after a clean heart,
+              and that the Father gives the Spirit to those who ask Him.
+            </p>
+            <ul class="scripture-list">
+              <li><a href="https://www.biblegateway.com/passage/?search=Acts%2015%3A8-9&version=KJV" target="_blank" rel="noopener noreferrer">Acts 15:8–9</a></li>
+              <li><a href="https://www.biblegateway.com/passage/?search=Acts%202%3A38&version=KJV" target="_blank" rel="noopener noreferrer">Acts 2:38</a></li>
+              <li><a href="https://www.biblegateway.com/passage/?search=Luke%2011%3A13&version=KJV" target="_blank" rel="noopener noreferrer">Luke 11:13</a></li>
+            </ul>
+          </article>
+
+          <article class="belief-card">
+            <div class="belief-number">9</div>
+            <h3>Speaking in Tongues</h3>
+            <p>
+              We believe speaking in tongues is the initial evidence of the
+              baptism of the Holy Ghost, as shown in the New Testament church.
+            </p>
+            <ul class="scripture-list">
+              <li><a href="https://www.biblegateway.com/passage/?search=Acts%202%3A4&version=KJV" target="_blank" rel="noopener noreferrer">Acts 2:4</a></li>
+              <li><a href="https://www.biblegateway.com/passage/?search=Acts%2010%3A44-46&version=KJV" target="_blank" rel="noopener noreferrer">Acts 10:44–46</a></li>
+              <li><a href="https://www.biblegateway.com/passage/?search=Acts%2019%3A6&version=KJV" target="_blank" rel="noopener noreferrer">Acts 19:6</a></li>
+            </ul>
+          </article>
+
+          <article class="belief-card">
+            <div class="belief-number">10</div>
+            <h3>Water Baptism</h3>
+            <p>
+              We believe in water baptism by immersion in the name of the Father,
+              the Son, and the Holy Ghost as an outward testimony of faith.
+            </p>
+            <ul class="scripture-list">
+              <li><a href="https://www.biblegateway.com/passage/?search=Matthew%2028%3A19&version=KJV" target="_blank" rel="noopener noreferrer">Matthew 28:19</a></li>
+              <li><a href="https://www.biblegateway.com/passage/?search=Romans%206%3A4&version=KJV" target="_blank" rel="noopener noreferrer">Romans 6:4</a></li>
+              <li><a href="https://www.biblegateway.com/passage/?search=Acts%208%3A38&version=KJV" target="_blank" rel="noopener noreferrer">Acts 8:38</a></li>
+            </ul>
+          </article>
+
+          <article class="belief-card">
+            <div class="belief-number">11</div>
+            <h3>Divine Healing</h3>
+            <p>
+              We believe in divine healing through the Atonement and in the
+              power of prayer for the sick.
+            </p>
+            <ul class="scripture-list">
+              <li><a href="https://www.biblegateway.com/passage/?search=Isaiah%2053%3A5&version=KJV" target="_blank" rel="noopener noreferrer">Isaiah 53:5</a></li>
+              <li><a href="https://www.biblegateway.com/passage/?search=Matthew%208%3A16-17&version=KJV" target="_blank" rel="noopener noreferrer">Matthew 8:16–17</a></li>
+              <li><a href="https://www.biblegateway.com/passage/?search=James%205%3A14-15&version=KJV" target="_blank" rel="noopener noreferrer">James 5:14–15</a></li>
+            </ul>
+          </article>
+
+          <article class="belief-card">
+            <div class="belief-number">12</div>
+            <h3>Communion and Feet Washing</h3>
+            <p>
+              We believe in the Lord’s Supper and in the washing of the saints’
+              feet as acts of remembrance, humility, and service.
+            </p>
+            <ul class="scripture-list">
+              <li><a href="https://www.biblegateway.com/passage/?search=Luke%2022%3A19-20&version=KJV" target="_blank" rel="noopener noreferrer">Luke 22:19–20</a></li>
+              <li><a href="https://www.biblegateway.com/passage/?search=1%20Corinthians%2011%3A24-26&version=KJV" target="_blank" rel="noopener noreferrer">1 Corinthians 11:24–26</a></li>
+              <li><a href="https://www.biblegateway.com/passage/?search=John%2013%3A14-15&version=KJV" target="_blank" rel="noopener noreferrer">John 13:14–15</a></li>
+            </ul>
+          </article>
+
+          <article class="belief-card">
+            <div class="belief-number">13</div>
+            <h3>The Second Coming</h3>
+            <p>
+              We believe in the premillennial second coming of Jesus Christ and
+              look forward to His return with hope and expectation.
+            </p>
+            <ul class="scripture-list">
+              <li><a href="https://www.biblegateway.com/passage/?search=1%20Thessalonians%204%3A16-17&version=KJV" target="_blank" rel="noopener noreferrer">1 Thessalonians 4:16–17</a></li>
+              <li><a href="https://www.biblegateway.com/passage/?search=Revelation%2020%3A4-6&version=KJV" target="_blank" rel="noopener noreferrer">Revelation 20:4–6</a></li>
+              <li><a href="https://www.biblegateway.com/passage/?search=Acts%201%3A11&version=KJV" target="_blank" rel="noopener noreferrer">Acts 1:11</a></li>
+            </ul>
+          </article>
+
+          <article class="belief-card">
+            <div class="belief-number">14</div>
+            <h3>Eternity</h3>
+            <p>
+              We believe in eternal life for the righteous and eternal punishment
+              for the wicked, according to the teaching of Scripture.
+            </p>
+            <ul class="scripture-list">
+              <li><a href="https://www.biblegateway.com/passage/?search=Matthew%2025%3A46&version=KJV" target="_blank" rel="noopener noreferrer">Matthew 25:46</a></li>
+              <li><a href="https://www.biblegateway.com/passage/?search=John%205%3A28-29&version=KJV" target="_blank" rel="noopener noreferrer">John 5:28–29</a></li>
+              <li><a href="https://www.biblegateway.com/passage/?search=Daniel%2012%3A2&version=KJV" target="_blank" rel="noopener noreferrer">Daniel 12:2</a></li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-card">
+          <h2>Come Worship With Us</h2>
+          <p>
+            Heaven Bound Church of God is a church where everybody is somebody.
+            Join us as we worship, study the Word, pray, and grow together in faith.
+          </p>
+
+      
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact">
     <div class="container">
-      <p>&copy; 2025 Heaven Bound Church of God. All rights reserved.</p>
+      <p>&copy; <span id="year"></span> Heaven Bound Church of God. All Rights Reserved.</p>
+      <p>
+        <a
+          href="https://www.google.com/maps/place/760+Centralhatchee+Pkwy,+Franklin,+GA+30217"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          760 Centralhatchee Pkwy, Franklin, GA 30217
+        </a>
+      </p>
+      <p>
+        <a href="tel:+17066753224">(706) 675-3224</a>
+      </p>
     </div>
   </footer>
 
+  <script>
+    const yearElement = document.getElementById("year");
+    const menuToggle = document.getElementById("menuToggle");
+    const mainNav = document.getElementById("mainNav");
+
+    yearElement.textContent = new Date().getFullYear();
+
+    menuToggle.addEventListener("click", () => {
+      mainNav.classList.toggle("open");
+
+      const isOpen = mainNav.classList.contains("open");
+      menuToggle.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
+      menuToggle.textContent = isOpen ? "×" : "☰";
+    });
+
+    mainNav.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        mainNav.classList.remove("open");
+        menuToggle.setAttribute("aria-label", "Open navigation");
+        menuToggle.textContent = "☰";
+      });
+    });
+  </script>
 </body>
 </html>
 
