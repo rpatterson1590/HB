@@ -625,102 +625,9 @@ footer a:hover {
     </div>
   </footer>
 
-  <script>
-    const yearElement = document.getElementById("year");
-    yearElement.textContent = new Date().getFullYear();
-
-const carousel = document.getElementById("carousel");
-  const dotsContainer = document.getElementById("dots");
-  const slides = Array.from(document.querySelectorAll(".slide"));
-  const prevButton = document.querySelector(".carousel-btn.prev");
-  const nextButton = document.querySelector(".carousel-btn.next");
-  const yearElement = document.getElementById("year");
-
+ <script>
   const menuToggle = document.getElementById("menuToggle");
   const mainNav = document.getElementById("mainNav");
-
-  let currentSlide = 0;
-  let carouselTimer = null;
-
-  function createDots() {
-    if (!dotsContainer || slides.length === 0) return;
-
-    slides.forEach((_, index) => {
-      const dot = document.createElement("button");
-      dot.className = "dot";
-      dot.type = "button";
-      dot.setAttribute("aria-label", `Go to slide ${index + 1}`);
-
-      dot.addEventListener("click", () => {
-        goToSlide(index);
-        restartCarouselTimer();
-      });
-
-      dotsContainer.appendChild(dot);
-    });
-  }
-
-  function updateCarousel() {
-    if (!carousel || slides.length === 0) return;
-
-    carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
-
-    document.querySelectorAll(".dot").forEach((dot, index) => {
-      dot.classList.toggle("active", index === currentSlide);
-    });
-  }
-
-  function goToSlide(index) {
-    if (slides.length === 0) return;
-
-    currentSlide = (index + slides.length) % slides.length;
-    updateCarousel();
-  }
-
-  function nextSlide() {
-    goToSlide(currentSlide + 1);
-  }
-
-  function prevSlide() {
-    goToSlide(currentSlide - 1);
-  }
-
-  function startCarouselTimer() {
-    if (slides.length === 0) return;
-
-    carouselTimer = window.setInterval(nextSlide, 5000);
-  }
-
-  function restartCarouselTimer() {
-    window.clearInterval(carouselTimer);
-    startCarouselTimer();
-  }
-
-  if (prevButton) {
-    prevButton.addEventListener("click", () => {
-      prevSlide();
-      restartCarouselTimer();
-    });
-  }
-
-  if (nextButton) {
-    nextButton.addEventListener("click", () => {
-      nextSlide();
-      restartCarouselTimer();
-    });
-  }
-
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "ArrowLeft") {
-      prevSlide();
-      restartCarouselTimer();
-    }
-
-    if (event.key === "ArrowRight") {
-      nextSlide();
-      restartCarouselTimer();
-    }
-  });
 
   if (menuToggle && mainNav) {
     menuToggle.addEventListener("click", () => {
@@ -743,14 +650,6 @@ const carousel = document.getElementById("carousel");
       });
     });
   }
-
-  createDots();
-  updateCarousel();
-  startCarouselTimer();
-
-  if (yearElement) {
-    yearElement.textContent = new Date().getFullYear();
-  }    
-  </script>
+</script>
 </body>
 </html>
