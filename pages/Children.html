@@ -3,40 +3,41 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Children’s Church | Heaven Bound Church of God</title>
+
+  <title>Children's Church Gallery | Heaven Bound Church of God</title>
 
   <style>
     :root {
-      --blue: #0b5f89;
-      --blue-dark: #073f5f;
-      --blue-deep: #062f49;
-      --gold: #f5b942;
-      --gold-dark: #d99717;
+      --blue-dark: #062946;
+      --blue-main: #073b63;
+      --blue-light: #0d5c8e;
       --white: #ffffff;
-      --light: #f5f8fb;
-      --text: #1f2933;
-      --muted: #667085;
-      --shadow: 0 18px 45px rgba(0, 0, 0, 0.16);
-      --radius: 18px;
-      --max: 1180px;
+      --gold: #d8b35a;
+      --soft-white: rgba(255, 255, 255, 0.86);
+      --muted-white: rgba(255, 255, 255, 0.68);
+      --glass: rgba(255, 255, 255, 0.1);
+      --border: rgba(255, 255, 255, 0.14);
+      --shadow: rgba(0, 0, 0, 0.28);
     }
 
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--light);
-      color: var(--text);
+      font-family: Georgia, "Times New Roman", serif;
+      background:
+        radial-gradient(circle at top left, rgba(22, 105, 158, 0.55), transparent 35%),
+        linear-gradient(135deg, var(--blue-dark), var(--blue-main), #021a31);
+      color: var(--white);
+      min-height: 100vh;
       line-height: 1.6;
-    }
-
-    img {
-      display: block;
-      max-width: 100%;
     }
 
     a {
@@ -44,852 +45,98 @@
       text-decoration: none;
     }
 
-    .topbar {
-      background: var(--blue-deep);
-      color: var(--white);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
+    img {
+      max-width: 100%;
+      display: block;
     }
 
-    .nav {
-      width: min(var(--max), calc(100% - 32px));
-      margin: 0 auto;
-      min-height: 76px;
+    .container {
+      width: min(1120px, 92%);
+      margin: auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(16px);
+      background: rgba(2, 26, 49, 0.88);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .navbar {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      padding: 18px 0;
       gap: 24px;
+      position: relative;
     }
 
     .brand {
-      display: inline-flex;
+      display: flex;
       align-items: center;
-      gap: 12px;
-      font-size: 1.25rem;
-      font-weight: 800;
-      letter-spacing: 0.02em;
+      gap: 14px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      flex-shrink: 0;
     }
 
-    .brand img {
-      width: 58px;
-      height: 58px;
-      object-fit: contain;
+    .brand-mark {
+      width: 48px;
+      height: 48px;
+      border: 3px solid var(--white);
       border-radius: 50%;
-      background: #fff;
-      padding: 4px;
+      position: relative;
+      flex-shrink: 0;
     }
 
-    .nav-toggle {
+    .brand-mark::before {
+      content: "";
+      position: absolute;
+      left: 19px;
+      top: -12px;
+      width: 4px;
+      height: 70px;
+      background: var(--white);
+      border-radius: 8px;
+    }
+
+    .brand-mark::after {
+      content: "";
+      position: absolute;
+      left: 7px;
+      top: 17px;
+      width: 31px;
+      height: 4px;
+      background: var(--white);
+      border-radius: 8px;
+    }
+
+    .brand span {
+      font-size: clamp(1rem, 2vw, 1.35rem);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      font-family: Arial, sans-serif;
+      font-size: 0.95rem;
+    }
+
+    nav a {
+      color: var(--soft-white);
+      transition: color 0.25s ease, background 0.25s ease;
+      white-space: nowrap;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: var(--gold);
+    }
+
+    .menu-toggle {
       display: none;
       width: 44px;
-      height: 44px;
-      border: 2px solid rgba(255, 255, 255, 0.35);
-      background: transparent;
-      color: var(--white);
-      border-radius: 8px;
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      list-style: none;
-    }
-
-    .nav-links a {
-      display: inline-flex;
-      align-items: center;
-      min-height: 42px;
-      padding: 8px 12px;
-      color: rgba(255, 255, 255, 0.9);
-      font-weight: 700;
-      font-size: 0.92rem;
-      border-radius: 8px;
-      transition: 0.2s ease;
-    }
-
-    .nav-links a:hover,
-    .nav-links a.active {
-      background: rgba(255, 255, 255, 0.13);
-      color: var(--white);
-    }
-
-    .hero {
-      min-height: 620px;
-      color: var(--white);
-      background:
-        linear-gradient(90deg, rgba(6, 47, 73, 0.96), rgba(6, 47, 73, 0.78), rgba(6, 47, 73, 0.38)),
-        url("https://heavenboundchurchofgod.com/pages/Child3.png") center right / cover no-repeat;
-      display: grid;
-      align-items: center;
-      padding: 72px 0;
-    }
-
-    .hero-inner {
-      width: min(var(--max), calc(100% - 32px));
-      margin: 0 auto;
-    }
-
-    .hero-content {
-      max-width: 720px;
-    }
-
-    .hero-kicker {
-      color: var(--gold);
-      text-transform: uppercase;
-      font-weight: 900;
-      letter-spacing: 0.16em;
-      margin-bottom: 12px;
-      font-size: 0.88rem;
-    }
-
-    .hero h1 {
-      font-size: clamp(2.8rem, 7vw, 5.8rem);
-      line-height: 0.95;
-      margin-bottom: 24px;
-      text-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
-    }
-
-    .hero p {
-      font-size: clamp(1.05rem, 2vw, 1.25rem);
-      color: rgba(255, 255, 255, 0.92);
-      max-width: 640px;
-      margin-bottom: 30px;
-    }
-
-    .hero-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 48px;
-      padding: 12px 22px;
-      border-radius: 7px;
-      font-weight: 900;
-      transition: 0.2s ease;
-    }
-
-    .btn-primary {
-      background: var(--gold);
-      color: #2d2104;
-    }
-
-    .btn-primary:hover {
-      background: #ffc857;
-      transform: translateY(-2px);
-    }
-
-    .btn-outline {
-      border: 2px solid rgba(255, 255, 255, 0.75);
-      color: var(--white);
-    }
-
-    .btn-outline:hover {
-      background: rgba(255, 255, 255, 0.14);
-      transform: translateY(-2px);
-    }
-
-    .section {
-      width: min(var(--max), calc(100% - 32px));
-      margin: 0 auto;
-      padding: 76px 0;
-    }
-
-    .section-heading {
-      text-align: center;
-      margin-bottom: 38px;
-    }
-
-    .section-heading h2 {
-      color: var(--blue-deep);
-      font-size: clamp(2rem, 4vw, 3.25rem);
-      line-height: 1.05;
-      margin-bottom: 12px;
-    }
-
-    .section-heading p {
-      color: var(--muted);
-      max-width: 700px;
-      margin: 0 auto;
-      font-size: 1.05rem;
-    }
-
-    .highlight-wrap {
-      position: relative;
-      overflow: hidden;
-      border-radius: var(--radius);
-      background: var(--white);
-      box-shadow: var(--shadow);
-    }
-
-    .highlight-track {
-      display: flex;
-      transition: transform 0.45s ease;
-    }
-
-    .highlight-slide {
-      min-width: 100%;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      background: var(--white);
-    }
-
-    .highlight-image {
-      min-height: 420px;
-      background: var(--blue-deep);
-    }
-
-    .highlight-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .highlight-content {
-      padding: clamp(28px, 5vw, 58px);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .highlight-label {
-      color: var(--gold-dark);
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      margin-bottom: 12px;
-      font-size: 0.8rem;
-    }
-
-    .highlight-content h3 {
-      color: var(--blue-deep);
-      font-size: clamp(1.7rem, 3vw, 2.5rem);
-      line-height: 1.08;
-      margin-bottom: 16px;
-    }
-
-    .highlight-content p,
-    .highlight-content li {
-      color: #4b5563;
-      font-size: 1.02rem;
-    }
-
-    .highlight-content ul {
-      padding-left: 20px;
-      margin-top: 8px;
-    }
-
-    .slider-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 46px;
-      height: 46px;
-      border: none;
-      border-radius: 50%;
-      background: rgba(6, 47, 73, 0.88);
-      color: var(--white);
-      font-size: 1.8rem;
-      cursor: pointer;
-      display: grid;
-      place-items: center;
-      transition: 0.2s ease;
-    }
-
-    .slider-btn:hover {
-      background: var(--gold-dark);
-    }
-
-    .slider-btn.prev {
-      left: 16px;
-    }
-
-    .slider-btn.next {
-      right: 16px;
-    }
-
-    .dots {
-      position: absolute;
-      left: 50%;
-      bottom: 18px;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 8px;
-    }
-
-    .dot {
-      width: 11px;
-      height: 11px;
-      border-radius: 50%;
-      border: 0;
-      background: rgba(255, 255, 255, 0.55);
-      cursor: pointer;
-    }
-
-    .dot.active {
-      background: var(--gold);
-    }
-
-    .ministry-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-    }
-
-    .ministry-card {
-      background: var(--white);
-      padding: 30px;
-      border-radius: var(--radius);
-      box-shadow: 0 12px 34px rgba(6, 47, 73, 0.12);
-      border-top: 6px solid var(--gold);
-    }
-
-    .ministry-card h3 {
-      color: var(--blue-deep);
-      font-size: 1.35rem;
-      margin-bottom: 10px;
-    }
-
-    .ministry-card p {
-      color: #4b5563;
-    }
-
-    .photo-band {
-      background: var(--blue-deep);
-      padding: 76px 0;
-    }
-
-    .photo-band-inner {
-      width: min(var(--max), calc(100% - 32px));
-      margin: 0 auto;
-    }
-
-    .photo-band .section-heading h2,
-    .photo-band .section-heading p {
-      color: var(--white);
-    }
-
-    .photo-band .section-heading p {
-      color: rgba(255, 255, 255, 0.78);
-    }
-
-    .photo-grid {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 22px;
-    }
-
-    .photo-card {
-      position: relative;
-      overflow: hidden;
-      border-radius: var(--radius);
-      min-height: 420px;
-      box-shadow: var(--shadow);
-    }
-
-    .photo-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .photo-caption {
-      position: absolute;
-      left: 18px;
-      right: 18px;
-      bottom: 18px;
-      background: rgba(6, 47, 73, 0.9);
-      color: var(--white);
-      padding: 18px;
-      border-left: 5px solid var(--gold);
-      border-radius: 10px;
-    }
-
-    .service-section {
-      background:
-        linear-gradient(rgba(245, 185, 66, 0.92), rgba(245, 185, 66, 0.92)),
-        url("https://heavenboundchurchofgod.com/pages/Child2.jpg") center / cover no-repeat;
-      padding: 76px 0;
-    }
-
-    .service-card {
-      width: min(820px, calc(100% - 32px));
-      margin: 0 auto;
-      background: var(--white);
-      border-radius: var(--radius);
-      padding: clamp(30px, 5vw, 52px);
-      text-align: center;
-      box-shadow: var(--shadow);
-    }
-
-    .service-card h2 {
-      color: var(--blue-deep);
-      font-size: clamp(2rem, 4vw, 3rem);
-      margin-bottom: 18px;
-    }
-
-    .service-times {
-      list-style: none;
-      display: grid;
-      gap: 12px;
-      margin: 24px 0 28px;
-    }
-
-    .service-times li {
-      background: #f3f7fa;
-      padding: 14px 18px;
-      border-radius: 10px;
-      color: var(--blue-deep);
-      font-weight: 800;
-    }
-
-    .footer {
-      background: #031f31;
-      color: var(--white);
-      text-align: center;
-      padding: 36px 16px;
-    }
-
-    .footer p {
-      color: rgba(255, 255, 255, 0.78);
-      margin-top: 6px;
-    }
-
-    .footer a {
-      color: var(--gold);
-      font-weight: 800;
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(22px);
-      transition: 0.65s ease;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    @media (max-width: 940px) {
-      .nav-toggle {
-        display: grid;
-        place-items: center;
-      }
-
-      .nav-links {
-        position: absolute;
-        top: 76px;
-        left: 16px;
-        right: 16px;
-        display: none;
-        flex-direction: column;
-        align-items: stretch;
-        background: var(--blue-deep);
-        padding: 14px;
-        border-radius: 0 0 14px 14px;
-      }
-
-      .nav-links.open {
-        display: flex;
-      }
-
-      .nav-links a {
-        width: 100%;
-      }
-
-      .hero {
-        background:
-          linear-gradient(rgba(6, 47, 73, 0.9), rgba(6, 47, 73, 0.78)),
-          url("https://heavenboundchurchofgod.com/pages/Child3.png") center / cover no-repeat;
-      }
-
-      .highlight-slide,
-      .photo-grid,
-      .ministry-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .highlight-image,
-      .photo-card {
-        min-height: 340px;
-      }
-    }
-
-    @media (max-width: 540px) {
-      .brand {
-        font-size: 1rem;
-      }
-
-      .brand img {
-        width: 48px;
-        height: 48px;
-      }
-
-      .hero {
-        min-height: 560px;
-      }
-
-      .slider-btn {
-        width: 40px;
-        height: 40px;
-        font-size: 1.45rem;
-      }
-
-      .slider-btn.prev {
-        left: 8px;
-      }
-
-      .slider-btn.next {
-        right: 8px;
-      }
-
-      .highlight-content {
-        padding: 34px 24px 56px;
-      }
-    }
-  </style>
-</head>
-
-<body>
-  <header class="topbar">
-    <nav class="nav" aria-label="Main navigation">
-      <a class="brand" href="https://heavenboundchurchofgod.com/">
-        <img
-          src="https://heavenboundchurchofgod.com/pages/HBCOGLOGO.png"
-          alt="Heaven Bound Church of God logo"
-        />
-        <span>Heaven Bound</span>
-      </a>
-
-      <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
-        ☰
-      </button>
-
-      <ul class="nav-links" id="navLinks">
-        <li><a href="https://heavenboundchurchofgod.com/">Home</a></li>
-        <li><a href="https://heavenboundchurchofgod.com/pages/what-we-believe">What We Believe</a></li>
-        <li><a href="https://heavenboundchurchofgod.com/pages/meet-our-founders">Meet Our Founders</a></li>
-        <li><a href="https://www.youtube.com/@HeavenBoundChurchofGod">Videos</a></li>
-        <li><a href="https://heavenboundchurchofgod.com/pages/news">News</a></li>
-        <li><a href="https://heavenboundchurchofgod.com/pages/calendar">Calendar</a></li>
-        <li><a href="https://churchofgod.org/">Church of God</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <main>
-    <section class="hero">
-      <div class="hero-inner">
-        <div class="hero-content reveal">
-          <div class="hero-kicker">Ages 3–12 · Every Sunday Morning</div>
-          <h1>Children’s Church</h1>
-          <p>
-            A safe, welcoming, and joyful place where children learn about God’s love
-            through Bible lessons, songs, crafts, worship, and prayer.
-          </p>
-
-          <div class="hero-buttons">
-            <a class="btn btn-primary" href="#highlights">Church Highlights</a>
-            <a class="btn btn-outline" href="#service-times">Service Times</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="highlights">
-      <div class="section-heading reveal">
-        <h2>Church Highlights</h2>
-        <p>
-          Stay connected with Children’s Church, worship, teaching, and ministry moments.
-        </p>
-      </div>
-
-      <div class="highlight-wrap reveal">
-        <div class="highlight-track" id="highlightTrack">
-          <article class="highlight-slide">
-            <div class="highlight-image">
-              <img
-                src="https://heavenboundchurchofgod.com/pages/Child1.jpg"
-                alt="Children gathered during Children’s Church"
-              />
-            </div>
-            <div class="highlight-content">
-              <div class="highlight-label">Breakfast</div>
-              <h3>Every child is welcomed and cared for.</h3>
-              <ul>
-                <li>A hot, healthy breakfast is served in the classroom before service.</li>
-                <li>Children’s Church workers help make sure no child goes hungry.</li>
-                <li>Breakfast gives children a warm and friendly start to Sunday morning.</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="highlight-slide">
-            <div class="highlight-image">
-              <img
-                src="https://heavenboundchurchofgod.com/pages/Child2.jpg"
-                alt="Children completing a craft during Children’s Church"
-              />
-            </div>
-            <div class="highlight-content">
-              <div class="highlight-label">Teaching & Activities</div>
-              <h3>Bible lessons made clear for young hearts.</h3>
-              <ul>
-                <li>Weekly Bible lessons include memory verses.</li>
-                <li>Craft time often reinforces the lesson of the day.</li>
-                <li>Children are encouraged to learn, ask questions, and grow in faith.</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="highlight-slide">
-            <div class="highlight-image">
-              <img
-                src="https://heavenboundchurchofgod.com/pages/Child3.png"
-                alt="Children’s Church ministry graphic"
-              />
-            </div>
-            <div class="highlight-content">
-              <div class="highlight-label">Worship & Prayer</div>
-              <h3>Kids worship, sing, pray, and participate.</h3>
-              <ul>
-                <li>Children learn worship songs during Children’s Church.</li>
-                <li>The youth choir sings in the main worship service on select Sundays.</li>
-                <li>Dedicated prayer time helps children learn the power of prayer.</li>
-              </ul>
-            </div>
-          </article>
-        </div>
-
-        <button class="slider-btn prev" type="button" aria-label="Previous highlight">‹</button>
-        <button class="slider-btn next" type="button" aria-label="Next highlight">›</button>
-
-        <div class="dots" id="sliderDots" aria-label="Highlight navigation"></div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="section-heading reveal">
-        <h2>Children’s Ministry</h2>
-        <p>
-          From breakfast to Bible lessons, every Sunday is designed to help children feel loved,
-          included, and pointed toward Jesus.
-        </p>
-      </div>
-
-      <div class="ministry-grid">
-        <article class="ministry-card reveal">
-          <h3>Worship & Music</h3>
-          <p>
-            Sister Marie Lashley teaches songs, and the children form the Heaven Bound Church Youth Choir.
-          </p>
-        </article>
-
-        <article class="ministry-card reveal">
-          <h3>Prayer</h3>
-          <p>
-            Children learn about the power of prayer and have dedicated prayer time each week.
-          </p>
-        </article>
-
-        <article class="ministry-card reveal">
-          <h3>Christmas Season</h3>
-          <p>
-            From September through December, children rehearse weekly for the Christmas play.
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <section class="photo-band">
-      <div class="photo-band-inner">
-        <div class="section-heading reveal">
-          <h2>Do not suffer the little ones to come unto me</h2>
-          <p>
-            Children’s Church is a joyful place for learning, listening, creating, and growing together.
-          </p>
-        </div>
-
-        <div class="photo-grid">
-          <article class="photo-card reveal">
-            <img
-              src="https://heavenboundchurchofgod.com/pages/Child1.jpg"
-              alt="Children participating in Children’s Church"
-            />
-            <div class="photo-caption">
-              <h3>Sunday Morning Lessons</h3>
-              <p>Children learn God’s Word in a way they can understand.</p>
-            </div>
-          </article>
-
-          <article class="photo-card reveal">
-            <img
-              src="https://heavenboundchurchofgod.com/pages/Child2.jpg"
-              alt="Children doing a Children’s Church activity"
-            />
-            <div class="photo-caption">
-              <h3>Crafts & Activities</h3>
-              <p>Hands-on activities help children remember the lesson.</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="service-section" id="service-times">
-      <div class="service-card reveal">
-        <h2>Service Times</h2>
-        <p>
-          Join us at Heaven Bound Church of God. Children’s Church meets every Sunday morning.
-        </p>
-
-        <ul class="service-times">
-          <li>Sunday Morning Worship Service — 11:00 AM</li>
-          <li>Sunday Evening Worship Service — 5:30 PM</li>
-          <li>Wednesday Evening — 6:00 PM</li>
-        </ul>
-
-        <a class="btn btn-primary" href="https://heavenboundchurchofgod.com/pages/calendar">
-          View Calendar
-        </a>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <strong>© <span id="year"></span> Heaven Bound Church of God. All Rights Reserved.</strong>
-    <p>
-      <a href="https://www.google.com/maps/search/?api=1&query=760+Centralhatchee+Pkwy+Franklin+GA+30217">
-        760 Centralhatchee Pkwy, Franklin, GA 30217
-      </a>
-    </p>
-    <p>(706) 675-3224</p>
-  </footer>
-
-  <script>
-    const navToggle = document.querySelector(".nav-toggle");
-    const navLinks = document.querySelector("#navLinks");
-    const year = document.querySelector("#year");
-
-    const track = document.querySelector("#highlightTrack");
-    const slides = Array.from(document.querySelectorAll(".highlight-slide"));
-    const prevButton = document.querySelector(".slider-btn.prev");
-    const nextButton = document.querySelector(".slider-btn.next");
-    const dotsContainer = document.querySelector("#sliderDots");
-
-    const revealItems = document.querySelectorAll(".reveal");
-
-    let currentSlide = 0;
-    let autoSlideTimer = null;
-
-    year.textContent = new Date().getFullYear();
-
-    navToggle.addEventListener("click", () => {
-      const isOpen = navLinks.classList.toggle("open");
-      navToggle.setAttribute("aria-expanded", String(isOpen));
-      navToggle.textContent = isOpen ? "×" : "☰";
-    });
-
-    navLinks.addEventListener("click", (event) => {
-      if (!event.target.closest("a")) {
-        return;
-      }
-
-      navLinks.classList.remove("open");
-      navToggle.setAttribute("aria-expanded", "false");
-      navToggle.textContent = "☰";
-    });
-
-    function createDots() {
-      slides.forEach((_, index) => {
-        const dot = document.createElement("button");
-        dot.className = "dot";
-        dot.type = "button";
-        dot.setAttribute("aria-label", `Go to highlight ${index + 1}`);
-
-        dot.addEventListener("click", () => {
-          goToSlide(index);
-          restartAutoSlide();
-        });
-
-        dotsContainer.appendChild(dot);
-      });
-    }
-
-    function updateSlider() {
-      track.style.transform = `translateX(-${currentSlide * 100}%)`;
-
-      const dots = dotsContainer.querySelectorAll(".dot");
-      dots.forEach((dot, index) => {
-        dot.classList.toggle("active", index === currentSlide);
-      });
-    }
-
-    function goToSlide(index) {
-      currentSlide = (index + slides.length) % slides.length;
-      updateSlider();
-    }
-
-    function nextSlide() {
-      goToSlide(currentSlide + 1);
-    }
-
-    function previousSlide() {
-      goToSlide(currentSlide - 1);
-    }
-
-    function startAutoSlide() {
-      autoSlideTimer = window.setInterval(nextSlide, 6000);
-    }
-
-    function restartAutoSlide() {
-      window.clearInterval(autoSlideTimer);
-      startAutoSlide();
-    }
-
-    prevButton.addEventListener("click", () => {
-      previousSlide();
-      restartAutoSlide();
-    });
-
-    nextButton.addEventListener("click", () => {
-      nextSlide();
-      restartAutoSlide();
-    });
-
-    const revealObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) {
-            return;
-          }
-
-          entry.target.classList.add("visible");
-          revealObserver.unobserve(entry.target);
-        });
-      },
-      {
-        threshold: 0.16
-      }
-    );
-
-    revealItems.forEach((item) => {
-      revealObserver.observe(item);
-    });
-
-    createDots();
-    updateSlider();
-    startAutoSlide();
-  </script>
-</body>
-</html>
