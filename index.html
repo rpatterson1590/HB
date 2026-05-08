@@ -3,487 +3,549 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+
   <title>Heaven Bound Church of God</title>
 
   <style>
-  :root {
-    --blue-dark: #062946;
-    --blue-main: #073b63;
-    --blue-light: #0d5c8e;
-    --white: #ffffff;
-    --gold: #d8b35a;
-    --soft-white: rgba(255, 255, 255, 0.86);
-    --glass: rgba(255, 255, 255, 0.1);
-    --border: rgba(255, 255, 255, 0.14);
-    --shadow: rgba(0, 0, 0, 0.28);
-  }
+    :root {
+      --blue-dark: #062946;
+      --blue-main: #073b63;
+      --blue-light: #0d5c8e;
+      --white: #ffffff;
+      --gold: #d8b35a;
+      --soft-white: rgba(255, 255, 255, 0.86);
+      --glass: rgba(255, 255, 255, 0.1);
+      --border: rgba(255, 255, 255, 0.14);
+      --shadow: rgba(0, 0, 0, 0.28);
+    }
 
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-  html {
-    scroll-behavior: smooth;
-  }
+    html {
+      scroll-behavior: smooth;
+    }
 
-  body {
-    font-family: Georgia, "Times New Roman", serif;
-    background:
-      radial-gradient(circle at top left, rgba(22, 105, 158, 0.55), transparent 35%),
-      linear-gradient(135deg, var(--blue-dark), var(--blue-main), #021a31);
-    color: var(--white);
-    min-height: 100vh;
-    line-height: 1.6;
-  }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      background:
+        radial-gradient(circle at top left, rgba(22, 105, 158, 0.55), transparent 35%),
+        linear-gradient(135deg, var(--blue-dark), var(--blue-main), #021a31);
+      color: var(--white);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
 
-  a {
-    color: inherit;
-    text-decoration: none;
-  }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-  img {
-    max-width: 100%;
-    display: block;
-  }
+    img {
+      max-width: 100%;
+      display: block;
+    }
 
-  .container {
-    width: min(1120px, 92%);
-    margin: auto;
-  }
+    .container {
+      width: min(1120px, 92%);
+      margin: auto;
+    }
 
-  header {
-    position: sticky;
-    top: 0;
-    z-index: 50;
-    backdrop-filter: blur(16px);
-    background: rgba(2, 26, 49, 0.82);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-  }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(16px);
+      background: rgba(2, 26, 49, 0.88);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
 
-  .navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 18px 0;
-    gap: 24px;
-    position: relative;
-  }
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 0;
+      gap: 24px;
+      position: relative;
+    }
 
-  .brand {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    font-weight: bold;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-  }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      flex-shrink: 0;
+    }
 
-  .brand-mark {
-    width: 48px;
-    height: 48px;
-    border: 3px solid var(--white);
-    border-radius: 50%;
-    position: relative;
-    flex-shrink: 0;
-  }
+    .brand-mark {
+      width: 48px;
+      height: 48px;
+      border: 3px solid var(--white);
+      border-radius: 50%;
+      position: relative;
+      flex-shrink: 0;
+    }
 
-  .brand-mark::before {
-    content: "";
-    position: absolute;
-    left: 19px;
-    top: -12px;
-    width: 4px;
-    height: 70px;
-    background: var(--white);
-    border-radius: 8px;
-  }
+    .brand-mark::before {
+      content: "";
+      position: absolute;
+      left: 19px;
+      top: -12px;
+      width: 4px;
+      height: 70px;
+      background: var(--white);
+      border-radius: 8px;
+    }
 
-  .brand-mark::after {
-    content: "";
-    position: absolute;
-    left: 7px;
-    top: 17px;
-    width: 31px;
-    height: 4px;
-    background: var(--white);
-    border-radius: 8px;
-  }
+    .brand-mark::after {
+      content: "";
+      position: absolute;
+      left: 7px;
+      top: 17px;
+      width: 31px;
+      height: 4px;
+      background: var(--white);
+      border-radius: 8px;
+    }
 
-  .brand span {
-    font-size: clamp(1rem, 2vw, 1.35rem);
-  }
-
-  nav {
-    display: flex;
-    align-items: center;
-    gap: 22px;
-    font-family: Arial, sans-serif;
-    font-size: 0.95rem;
-  }
-
-  nav a {
-    color: var(--soft-white);
-    transition: color 0.25s ease, background 0.25s ease;
-  }
-
-  nav a:hover,
-  nav a.active {
-    color: var(--gold);
-  }
-
-  .menu-toggle {
-    display: none;
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    border: 1px solid var(--border);
-    background: rgba(255, 255, 255, 0.08);
-    color: var(--white);
-    font-size: 1.35rem;
-    cursor: pointer;
-    flex-shrink: 0;
-  }
-
-  .hero {
-    padding: 96px 0 76px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background:
-      linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-    background-size: 52px 52px;
-    opacity: 0.35;
-    pointer-events: none;
-  }
-
-  .hero-content {
-    position: relative;
-    z-index: 2;
-  }
-
-  .eyebrow {
-    display: inline-block;
-    color: var(--gold);
-    font-family: Arial, sans-serif;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    margin-bottom: 14px;
-  }
-
-  .hero h1 {
-    font-size: clamp(2.7rem, 7vw, 5.5rem);
-    line-height: 0.95;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    text-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-  }
-
-  .hero p {
-    max-width: 760px;
-    margin: 24px auto 0;
-    font-family: Arial, sans-serif;
-    color: var(--soft-white);
-    font-size: 1.08rem;
-  }
-
-  .hero-actions {
-    margin-top: 34px;
-    display: flex;
-    justify-content: center;
-    gap: 16px;
-    flex-wrap: wrap;
-  }
-
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 48px;
-    padding: 0 24px;
-    border-radius: 999px;
-    font-family: Arial, sans-serif;
-    font-weight: 700;
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    cursor: pointer;
-    transition: transform 0.2s ease, background 0.2s ease;
-  }
-
-  .btn:hover {
-    transform: translateY(-2px);
-  }
-
-  .btn-primary {
-    background: var(--white);
-    color: var(--blue-dark);
-  }
-
-  .btn-secondary {
-    background: rgba(255, 255, 255, 0.09);
-    color: var(--white);
-  }
-
-  section {
-    padding: 74px 0;
-  }
-
-  .section-heading {
-    text-align: center;
-    margin-bottom: 38px;
-  }
-
-  .section-heading h2 {
-    font-size: clamp(2rem, 4vw, 3.2rem);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-  }
-
-  .section-heading p {
-    margin-top: 10px;
-    color: var(--soft-white);
-    font-family: Arial, sans-serif;
-  }
-
-  .founders-wrap {
-    display: grid;
-    grid-template-columns: 0.85fr 1.15fr;
-    gap: 28px;
-    align-items: stretch;
-  }
-
-  .founders-image-card,
-  .founder-card {
-    background: var(--glass);
-    border: 1px solid var(--border);
-    border-radius: 28px;
-    overflow: hidden;
-    box-shadow: 0 24px 70px var(--shadow);
-    backdrop-filter: blur(10px);
-  }
-
-  .founders-image-card {
-    min-height: 520px;
-    position: relative;
-    display: grid;
-    place-items: center;
-    background:
-      linear-gradient(rgba(2, 26, 49, 0.25), rgba(2, 26, 49, 0.75)),
-      radial-gradient(circle at top, var(--blue-light), var(--blue-dark));
-  }
-
-  .founders-image-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  .image-fallback {
-    padding: 42px;
-    text-align: center;
-  }
-
-  .image-fallback-icon {
-    width: 128px;
-    height: 128px;
-    margin: 0 auto 22px;
-    border: 5px solid var(--white);
-    border-radius: 50%;
-    position: relative;
-    opacity: 0.95;
-  }
-
-  .image-fallback-icon::before {
-    content: "";
-    position: absolute;
-    left: 55px;
-    top: -24px;
-    width: 8px;
-    height: 172px;
-    background: var(--white);
-    border-radius: 12px;
-  }
-
-  .image-fallback-icon::after {
-    content: "";
-    position: absolute;
-    left: 20px;
-    top: 47px;
-    width: 80px;
-    height: 8px;
-    background: var(--white);
-    border-radius: 12px;
-  }
-
-  .image-fallback h2 {
-    font-size: clamp(1.8rem, 4vw, 3rem);
-    text-transform: uppercase;
-    line-height: 1;
-    margin-bottom: 12px;
-  }
-
-  .image-fallback p {
-    font-family: Arial, sans-serif;
-    color: var(--soft-white);
-  }
-
-  .founders-content {
-    display: grid;
-    gap: 22px;
-  }
-
-  .founder-card {
-    padding: 34px;
-  }
-
-  .founder-card small {
-    color: var(--gold);
-    font-family: Arial, sans-serif;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-  }
-
-  .founder-card h3 {
-    margin-top: 10px;
-    margin-bottom: 14px;
-    font-size: clamp(1.8rem, 4vw, 2.8rem);
-    line-height: 1;
-    text-transform: uppercase;
-  }
-
-  .founder-card p {
-    color: var(--soft-white);
-    font-family: Arial, sans-serif;
-    font-size: 1.02rem;
-  }
-
-  .legacy-section {
-    padding-top: 0;
-  }
-
-  .legacy-card {
-    background:
-      linear-gradient(90deg, rgba(2, 26, 49, 0.88), rgba(2, 26, 49, 0.48)),
-      linear-gradient(135deg, #083d66, #021a31);
-    border: 1px solid var(--border);
-    border-radius: 28px;
-    padding: clamp(32px, 6vw, 64px);
-    box-shadow: 0 24px 70px var(--shadow);
-    text-align: center;
-  }
-
-  .legacy-card h2 {
-    font-size: clamp(2rem, 5vw, 4rem);
-    text-transform: uppercase;
-    line-height: 1;
-    margin-bottom: 18px;
-  }
-
-  .legacy-card p {
-    max-width: 820px;
-    margin: 0 auto;
-    font-family: Arial, sans-serif;
-    color: var(--soft-white);
-    font-size: 1.08rem;
-  }
-
-  footer {
-    padding: 42px 0;
-    text-align: center;
-    border-top: 1px solid rgba(255, 255, 255, 0.14);
-    color: var(--soft-white);
-    font-family: Arial, sans-serif;
-  }
-
-  footer p {
-    margin: 7px 0;
-  }
-
-  footer a:hover {
-    color: var(--gold);
-  }
-
-  @media (max-width: 900px) {
-    .menu-toggle {
-      display: inline-grid;
-      place-items: center;
+    .brand span {
+      font-size: clamp(1rem, 2vw, 1.35rem);
     }
 
     nav {
-      position: absolute;
-      top: 84px;
-      left: 4%;
-      right: 4%;
-      display: none;
-      flex-direction: column;
-      align-items: stretch;
-      gap: 0;
-      padding: 12px;
-      border-radius: 20px;
-      background: rgba(2, 26, 49, 0.96);
-      border: 1px solid var(--border);
-      box-shadow: 0 18px 44px rgba(0, 0, 0, 0.28);
-    }
-
-    nav.open {
       display: flex;
+      align-items: center;
+      gap: 22px;
+      font-family: Arial, sans-serif;
+      font-size: 0.95rem;
     }
 
     nav a {
-      padding: 13px 14px;
-      border-radius: 14px;
+      color: var(--soft-white);
+      transition: color 0.25s ease, background 0.25s ease;
+      white-space: nowrap;
     }
 
     nav a:hover,
     nav a.active {
       color: var(--gold);
-      background: rgba(255, 255, 255, 0.08);
     }
 
-    .founders-wrap {
-      grid-template-columns: 1fr;
-    }
-
-    .founders-image-card {
-      min-height: 380px;
-    }
-  }
-
-  @media (max-width: 560px) {
-    .hero {
-      padding: 74px 0 56px;
-    }
-
-    .founder-card {
-      padding: 26px;
-    }
-
-    .brand-mark {
+    .menu-toggle {
       display: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--white);
+      font-size: 1.35rem;
+      cursor: pointer;
+      flex-shrink: 0;
     }
-  }
-</style>
-   
+
+    .hero {
+      padding: 92px 0 72px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+      background-size: 52px 52px;
+      opacity: 0.35;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .logo-display {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+    }
+
+    .hero-title {
+      text-align: center;
+    }
+
+    .hero-title h1 {
+      font-size: clamp(2.4rem, 7vw, 5.4rem);
+      line-height: 0.95;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      text-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero-title h1 span {
+      display: block;
+      font-size: clamp(1.8rem, 5vw, 4rem);
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: 22px auto 0;
+      font-family: Arial, sans-serif;
+      color: var(--soft-white);
+      font-size: 1.08rem;
+    }
+
+    .hero-actions {
+      margin-top: 34px;
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 24px;
+      border-radius: 999px;
+      font-family: Arial, sans-serif;
+      font-weight: 700;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--white);
+      color: var(--blue-dark);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.09);
+      color: var(--white);
+    }
+
+    section {
+      padding: 74px 0;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 34px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .section-heading p {
+      margin-top: 10px;
+      color: var(--soft-white);
+      font-family: Arial, sans-serif;
+    }
+
+    .carousel-wrapper {
+      position: relative;
+      border-radius: 28px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .carousel {
+      display: flex;
+      transition: transform 0.55s ease;
+    }
+
+    .slide {
+      min-width: 100%;
+      min-height: 420px;
+      padding: 64px;
+      display: flex;
+      align-items: center;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .slide::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(2, 26, 49, 0.88), rgba(2, 26, 49, 0.35));
+    }
+
+    .slide-content {
+      position: relative;
+      z-index: 2;
+      max-width: 610px;
+    }
+
+    .slide-content small {
+      color: var(--gold);
+      font-family: Arial, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 700;
+    }
+
+    .slide-content h3 {
+      font-size: clamp(2rem, 5vw, 4rem);
+      line-height: 1;
+      margin: 14px 0;
+      text-transform: uppercase;
+    }
+
+    .slide-content p {
+      color: var(--soft-white);
+      font-family: Arial, sans-serif;
+      font-size: 1.05rem;
+    }
+
+    .slide-content a:hover {
+      color: var(--gold);
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(255, 255, 255, 0.9);
+      color: var(--blue-dark);
+      font-size: 1.7rem;
+      cursor: pointer;
+      z-index: 5;
+    }
+
+    .carousel-btn.prev {
+      left: 18px;
+    }
+
+    .carousel-btn.next {
+      right: 18px;
+    }
+
+    .dots {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 18px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      z-index: 6;
+    }
+
+    .dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(255, 255, 255, 0.45);
+      cursor: pointer;
+    }
+
+    .dot.active {
+      background: var(--white);
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 42px;
+    }
+
+    .info-card {
+      background: var(--glass);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 22px;
+      padding: 28px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 18px 44px rgba(0, 0, 0, 0.18);
+    }
+
+    .info-card h3 {
+      font-size: 1.45rem;
+      margin-bottom: 8px;
+      color: var(--white);
+    }
+
+    .info-card p {
+      color: var(--soft-white);
+      font-family: Arial, sans-serif;
+      margin-bottom: 6px;
+    }
+
+    .articles-section {
+      width: min(1120px, 92%);
+      margin: 0 auto;
+      padding: 74px 0;
+    }
+
+    .articles-section h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      margin-bottom: 2rem;
+      text-align: center;
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .articles-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 22px;
+    }
+
+    .article-card {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 18px 44px rgba(0, 0, 0, 0.2);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .article-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(216, 179, 90, 0.5);
+    }
+
+    .article-card iframe {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      display: block;
+      border: none;
+    }
+
+    footer {
+      padding: 42px 0;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.14);
+      color: var(--soft-white);
+      font-family: Arial, sans-serif;
+    }
+
+    footer p {
+      margin: 7px 0;
+    }
+
+    footer a:hover {
+      color: var(--gold);
+    }
+
+    @media (max-width: 940px) {
+      .menu-toggle {
+        display: inline-grid;
+        place-items: center;
+      }
+
+      nav {
+        position: absolute;
+        top: 84px;
+        left: 4%;
+        right: 4%;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 12px;
+        border-radius: 20px;
+        background: rgba(2, 26, 49, 0.97);
+        border: 1px solid var(--border);
+        box-shadow: 0 18px 44px rgba(0, 0, 0, 0.28);
+      }
+
+      nav.open {
+        display: flex;
+      }
+
+      nav a {
+        padding: 13px 14px;
+        border-radius: 14px;
+      }
+
+      nav a:hover,
+      nav a.active {
+        color: var(--gold);
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      .slide {
+        padding: 54px 28px;
+        min-height: 430px;
+      }
+
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .hero {
+        padding: 74px 0 56px;
+      }
+
+      .brand-mark {
+        display: none;
+      }
+
+      .brand span {
+        font-size: 1rem;
+      }
+
+      .carousel-btn {
+        width: 40px;
+        height: 40px;
+      }
+
+      .carousel-btn.prev {
+        left: 10px;
+      }
+
+      .carousel-btn.next {
+        right: 10px;
+      }
+    }
+  </style>
 </head>
 
 <body>
-<header>
+  <header>
     <div class="container navbar">
       <a href="/" class="brand" aria-label="Heaven Bound Church of God Home">
-        
+        <div class="brand-mark" aria-hidden="true"></div>
         <span>Heaven Bound</span>
       </a>
-  
+
       <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open navigation">
         ☰
       </button>
@@ -492,10 +554,10 @@
         <a href="/">Home</a>
         <a href="/pages/webilileve.html">What We Believe</a>
         <a href="/pages/debbie.html">Meet Our Founders</a>
-        <a href="https://www.youtube.com/@heavenboundchurch3377">Videos</a>
+        <a href="https://www.youtube.com/@heavenboundchurch3377" target="_blank" rel="noopener noreferrer">Videos</a>
         <a href="/pages/january.html" class="active">News</a>
         <a href="/pages/Calendar.html">Calendar</a>
-        <a href="https://churchofgod.org/">Church of God</a>
+        <a href="https://churchofgod.org/" target="_blank" rel="noopener noreferrer">Church of God</a>
       </nav>
     </div>
   </header>
@@ -504,8 +566,6 @@
     <section class="hero" id="home">
       <div class="container hero-content">
         <div class="logo-display">
-          
-
           <div class="hero-title">
             <h1>
               Heaven Bound
@@ -521,7 +581,14 @@
 
         <div class="hero-actions">
           <a class="btn btn-primary" href="#services">Service Times</a>
-          <a class="btn btn-secondary" href="https://www.facebook.com/profile.php?id=100064533316230">Watch Online</a>
+          <a
+            class="btn btn-secondary"
+            href="https://www.facebook.com/profile.php?id=100064533316230"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Watch Online
+          </a>
         </div>
       </div>
     </section>
@@ -534,7 +601,7 @@
         </div>
 
         <div class="carousel-wrapper">
-          <button class="carousel-btn prev" aria-label="Previous slide">&#8249;</button>
+          <button class="carousel-btn prev" type="button" aria-label="Previous slide">&#8249;</button>
 
           <div class="carousel" id="carousel">
             <article class="slide" style="background-image: linear-gradient(135deg, #083d66, #021a31);">
@@ -551,9 +618,14 @@
             <article class="slide" style="background-image: linear-gradient(135deg, #0b5f8f, #03223b);">
               <div class="slide-content">
                 <small>Do not suffer the little ones to come unto me</small>
-                <h3><a hred="https://heavenboundchurchofgod.com/pages/children">Children's Church</a></h3>
+                <h3>
+                  <a href="https://heavenboundchurchofgod.com/pages/children">
+                    Children's Church
+                  </a>
+                </h3>
                 <p>
-                 Our Children’s Church is a safe, welcoming, and joyful place where kids can learn about God’s love in a way they can understand. Through Bible lessons, songs, crafts, games, and prayer.
+                  Our Children’s Church is a safe, welcoming, and joyful place where kids can learn about God’s love
+                  in a way they can understand through Bible lessons, songs, crafts, games, and prayer.
                 </p>
               </div>
             </article>
@@ -561,216 +633,258 @@
             <article class="slide" style="background-image: linear-gradient(135deg, #0c486f, #061426);">
               <div class="slide-content">
                 <small>Community</small>
-                <h3><a href="https://www.facebook.com/groups/626364787227293">Journey of Change</a></h3>
+                <h3>
+                  <a
+                    href="https://www.facebook.com/groups/626364787227293"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Journey of Change
+                  </a>
+                </h3>
                 <p>
-                 Walk in faith, live in health.
+                  Walk in faith, live in health.
                 </p>
               </div>
             </article>
           </div>
 
-          <button class="carousel-btn next" aria-label="Next slide">&#8250;</button>
+          <button class="carousel-btn next" type="button" aria-label="Next slide">&#8250;</button>
 
           <div class="dots" id="dots" aria-label="Carousel navigation"></div>
         </div>
 
         <div class="info-grid" id="services">
           <div class="info-card">
-            <h3>Service</h3>
-            <p>Sunday MorningWorship Service — 11:00 AM</p>
+            <h3>Service Times</h3>
+            <p>Sunday Morning Worship Service — 11:00 AM</p>
             <p>Sunday Evening Worship Service — 5:30 PM</p>
             <p>Wednesday Evening — 6:00 PM</p>
-          </div>
-
-        
-
-         
           </div>
         </div>
       </div>
     </section>
-<section id="blog" class="articles-section">
-  <h2>Recent Videos</h2>
-  <div class="articles-container">
 
-<article class="article-card">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/V_j4QbmO1dI?si=PHpUx6BFlwcPhdfy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-     </article>
-    
-    <article class="article-card">
-   <iframe width="560" height="315" src="https://www.youtube.com/embed/NHIl6IMCc5s?si=QRV8aruinbhgKKV8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    </article>
-    
+    <section id="blog" class="articles-section">
+      <h2>Recent Videos</h2>
 
-    <article class="article-card">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/VbAdSBrRV54?si=J3rK_LOyZGC4hT3O" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-  </article>
-      
-    <article class="article-card">
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/lhud7_xS6zg?si=wLO32u5eOrFDW8rX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    </article>
-      
-    <article class="article-card">
-     <iframe width="560" height="315" src="https://www.youtube.com/embed/eH95uZv3Z88?si=IOzQELa1-fxvX7cR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    </article>
-      
-<article class="article-card">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/TJRSXBhyZJk?si=le6coMO60IA-yAC0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-  </article>   
+      <div class="articles-container">
+        <article class="article-card">
+          <iframe
+            src="https://www.youtube.com/embed/V_j4QbmO1dI"
+            title="Heaven Bound Church video 1"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen>
+          </iframe>
+        </article>
 
-</div>
-</section>
-    
+        <article class="article-card">
+          <iframe
+            src="https://www.youtube.com/embed/NHIl6IMCc5s"
+            title="Heaven Bound Church video 2"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen>
+          </iframe>
+        </article>
+
+        <article class="article-card">
+          <iframe
+            src="https://www.youtube.com/embed/VbAdSBrRV54"
+            title="Heaven Bound Church video 3"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen>
+          </iframe>
+        </article>
+
+        <article class="article-card">
+          <iframe
+            src="https://www.youtube.com/embed/lhud7_xS6zg"
+            title="Heaven Bound Church video 4"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen>
+          </iframe>
+        </article>
+
+        <article class="article-card">
+          <iframe
+            src="https://www.youtube.com/embed/eH95uZv3Z88"
+            title="Heaven Bound Church video 5"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen>
+          </iframe>
+        </article>
+
+        <article class="article-card">
+          <iframe
+            src="https://www.youtube.com/embed/TJRSXBhyZJk"
+            title="Heaven Bound Church video 6"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen>
+          </iframe>
+        </article>
+      </div>
+    </section>
   </main>
 
   <footer id="contact">
     <div class="container">
       <p>&copy; <span id="year"></span> Heaven Bound Church of God. All Rights Reserved.</p>
-      <p><a href="https://www.google.com/maps/place/760+Centralhatchee+Pkwy,+Franklin,+GA+30217" target="_blank" rel="noopener noreferrer">760 Centralhatchee Pkwy, Franklin, GA 30217</a></p>
-      <p><a href="tel:+17066753224" class="phone-link">(706) 675-3224</a></p>
+
+      <p>
+        <a
+          href="https://www.google.com/maps/place/760+Centralhatchee+Pkwy,+Franklin,+GA+30217"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          760 Centralhatchee Pkwy, Franklin, GA 30217
+        </a>
+      </p>
+
+      <p>
+        <a href="tel:+17066753224" class="phone-link">(706) 675-3224</a>
+      </p>
     </div>
   </footer>
 
- <script>
-  const carousel = document.getElementById("carousel");
-  const dotsContainer = document.getElementById("dots");
-  const slides = Array.from(document.querySelectorAll(".slide"));
-  const prevButton = document.querySelector(".carousel-btn.prev");
-  const nextButton = document.querySelector(".carousel-btn.next");
-  const yearElement = document.getElementById("year");
+  <script>
+    const carousel = document.getElementById("carousel");
+    const dotsContainer = document.getElementById("dots");
+    const slides = Array.from(document.querySelectorAll(".slide"));
+    const prevButton = document.querySelector(".carousel-btn.prev");
+    const nextButton = document.querySelector(".carousel-btn.next");
+    const yearElement = document.getElementById("year");
+    const menuToggle = document.getElementById("menuToggle");
+    const mainNav = document.getElementById("mainNav");
 
-  const menuToggle = document.getElementById("menuToggle");
-  const mainNav = document.getElementById("mainNav");
+    let currentSlide = 0;
+    let carouselTimer = null;
 
-  let currentSlide = 0;
-  let carouselTimer = null;
+    function createDots() {
+      if (!dotsContainer || slides.length === 0) return;
 
-  function createDots() {
-    if (!dotsContainer || slides.length === 0) return;
+      dotsContainer.innerHTML = "";
 
-    slides.forEach((_, index) => {
-      const dot = document.createElement("button");
-      dot.className = "dot";
-      dot.type = "button";
-      dot.setAttribute("aria-label", `Go to slide ${index + 1}`);
+      slides.forEach((_, index) => {
+        const dot = document.createElement("button");
+        dot.className = "dot";
+        dot.type = "button";
+        dot.setAttribute("aria-label", `Go to slide ${index + 1}`);
 
-      dot.addEventListener("click", () => {
-        goToSlide(index);
+        dot.addEventListener("click", () => {
+          goToSlide(index);
+          restartCarouselTimer();
+        });
+
+        dotsContainer.appendChild(dot);
+      });
+    }
+
+    function updateCarousel() {
+      if (!carousel || slides.length === 0) return;
+
+      carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+      document.querySelectorAll(".dot").forEach((dot, index) => {
+        dot.classList.toggle("active", index === currentSlide);
+      });
+    }
+
+    function goToSlide(index) {
+      if (slides.length === 0) return;
+
+      currentSlide = (index + slides.length) % slides.length;
+      updateCarousel();
+    }
+
+    function nextSlide() {
+      goToSlide(currentSlide + 1);
+    }
+
+    function prevSlide() {
+      goToSlide(currentSlide - 1);
+    }
+
+    function startCarouselTimer() {
+      if (slides.length === 0) return;
+
+      carouselTimer = window.setInterval(nextSlide, 5000);
+    }
+
+    function restartCarouselTimer() {
+      window.clearInterval(carouselTimer);
+      startCarouselTimer();
+    }
+
+    if (prevButton) {
+      prevButton.addEventListener("click", () => {
+        prevSlide();
         restartCarouselTimer();
       });
-
-      dotsContainer.appendChild(dot);
-    });
-  }
-
-  function updateCarousel() {
-    if (!carousel || slides.length === 0) return;
-
-    carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
-
-    document.querySelectorAll(".dot").forEach((dot, index) => {
-      dot.classList.toggle("active", index === currentSlide);
-    });
-  }
-
-  function goToSlide(index) {
-    if (slides.length === 0) return;
-
-    currentSlide = (index + slides.length) % slides.length;
-    updateCarousel();
-  }
-
-  function nextSlide() {
-    goToSlide(currentSlide + 1);
-  }
-
-  function prevSlide() {
-    goToSlide(currentSlide - 1);
-  }
-
-  function startCarouselTimer() {
-    if (slides.length === 0) return;
-
-    carouselTimer = window.setInterval(nextSlide, 5000);
-  }
-
-  function restartCarouselTimer() {
-    window.clearInterval(carouselTimer);
-    startCarouselTimer();
-  }
-
-  if (prevButton) {
-    prevButton.addEventListener("click", () => {
-      prevSlide();
-      restartCarouselTimer();
-    });
-  }
-
-  if (nextButton) {
-    nextButton.addEventListener("click", () => {
-      nextSlide();
-      restartCarouselTimer();
-    });
-  }
-
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "ArrowLeft") {
-      prevSlide();
-      restartCarouselTimer();
     }
 
-    if (event.key === "ArrowRight") {
-      nextSlide();
-      restartCarouselTimer();
+    if (nextButton) {
+      nextButton.addEventListener("click", () => {
+        nextSlide();
+        restartCarouselTimer();
+      });
     }
-  });
 
-  if (menuToggle && mainNav) {
-    menuToggle.addEventListener("click", () => {
-      mainNav.classList.toggle("open");
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowLeft") {
+        prevSlide();
+        restartCarouselTimer();
+      }
 
-      const isOpen = mainNav.classList.contains("open");
+      if (event.key === "ArrowRight") {
+        nextSlide();
+        restartCarouselTimer();
+      }
 
-      menuToggle.textContent = isOpen ? "×" : "☰";
-      menuToggle.setAttribute(
-        "aria-label",
-        isOpen ? "Close navigation" : "Open navigation"
-      );
-    });
-
-    mainNav.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => {
+      if (event.key === "Escape" && mainNav && menuToggle) {
         mainNav.classList.remove("open");
         menuToggle.textContent = "☰";
         menuToggle.setAttribute("aria-label", "Open navigation");
-      });
+      }
     });
-  }
 
-  createDots();
-  updateCarousel();
-  startCarouselTimer();
+    if (menuToggle && mainNav) {
+      menuToggle.addEventListener("click", () => {
+        mainNav.classList.toggle("open");
 
-  if (yearElement) {
-    yearElement.textContent = new Date().getFullYear();
-  }
-</script>
+        const isOpen = mainNav.classList.contains("open");
+
+        menuToggle.textContent = isOpen ? "×" : "☰";
+        menuToggle.setAttribute(
+          "aria-label",
+          isOpen ? "Close navigation" : "Open navigation"
+        );
+      });
+
+      mainNav.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          mainNav.classList.remove("open");
+          menuToggle.textContent = "☰";
+          menuToggle.setAttribute("aria-label", "Open navigation");
+        });
+      });
+    }
+
+    createDots();
+    updateCarousel();
+    startCarouselTimer();
+
+    if (yearElement) {
+      yearElement.textContent = new Date().getFullYear();
+    }
+  </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
