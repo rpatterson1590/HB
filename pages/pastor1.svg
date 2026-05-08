@@ -1,0 +1,95 @@
+<svg width="900" height="1200" viewBox="0 0 900 1200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="glowTop" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(180 120) rotate(55) scale(740 600)">
+      <stop stop-color="#0D5C8E"></stop>
+      <stop offset="0.48" stop-color="#073B63"></stop>
+      <stop offset="1" stop-color="#021A31"></stop>
+    </radialGradient>
+
+    <linearGradient id="goldLine" x1="120" y1="0" x2="780" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#D8B35A" stop-opacity="0"></stop>
+      <stop offset="0.5" stop-color="#D8B35A"></stop>
+      <stop offset="1" stop-color="#D8B35A" stop-opacity="0"></stop>
+    </linearGradient>
+
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#000000" flood-opacity="0.35"></feDropShadow>
+    </filter>
+  </defs>
+
+  <rect width="900" height="1200" fill="url(#glowTop)"></rect>
+
+  <g opacity="0.14">
+    <path d="M0 120H900" stroke="white"></path>
+    <path d="M0 240H900" stroke="white"></path>
+    <path d="M0 360H900" stroke="white"></path>
+    <path d="M0 480H900" stroke="white"></path>
+    <path d="M0 600H900" stroke="white"></path>
+    <path d="M0 720H900" stroke="white"></path>
+    <path d="M0 840H900" stroke="white"></path>
+    <path d="M0 960H900" stroke="white"></path>
+    <path d="M0 1080H900" stroke="white"></path>
+
+    <path d="M120 0V1200" stroke="white"></path>
+    <path d="M240 0V1200" stroke="white"></path>
+    <path d="M360 0V1200" stroke="white"></path>
+    <path d="M480 0V1200" stroke="white"></path>
+    <path d="M600 0V1200" stroke="white"></path>
+    <path d="M720 0V1200" stroke="white"></path>
+  </g>
+
+  <circle cx="450" cy="260" r="145" fill="white" fill-opacity="0.07" stroke="white" stroke-opacity="0.16" stroke-width="2"></circle>
+  <circle cx="450" cy="260" r="110" fill="white" fill-opacity="0.05"></circle>
+
+  <g filter="url(#shadow)">
+    <path d="M260 295C305 260 358 248 421 269V432C360 407 306 412 260 450V295Z" fill="#F8F4E8"></path>
+    <path d="M640 295C595 260 542 248 479 269V432C540 407 594 412 640 450V295Z" fill="#F8F4E8"></path>
+    <path d="M421 269C440 278 460 278 479 269V432C460 442 440 442 421 432V269Z" fill="#E8DDBE"></path>
+    <path d="M260 295C305 260 358 248 421 269" stroke="#D8B35A" stroke-width="8" stroke-linecap="round"></path>
+    <path d="M640 295C595 260 542 248 479 269" stroke="#D8B35A" stroke-width="8" stroke-linecap="round"></path>
+    <path d="M310 318H390" stroke="#073B63" stroke-width="6" stroke-linecap="round" opacity="0.65"></path>
+    <path d="M305 350H390" stroke="#073B63" stroke-width="6" stroke-linecap="round" opacity="0.5"></path>
+    <path d="M304 382H382" stroke="#073B63" stroke-width="6" stroke-linecap="round" opacity="0.42"></path>
+    <path d="M510 318H590" stroke="#073B63" stroke-width="6" stroke-linecap="round" opacity="0.65"></path>
+    <path d="M510 350H596" stroke="#073B63" stroke-width="6" stroke-linecap="round" opacity="0.5"></path>
+    <path d="M518 382H596" stroke="#073B63" stroke-width="6" stroke-linecap="round" opacity="0.42"></path>
+
+    <path d="M610 208L666 264L428 502L350 524L372 446L610 208Z" fill="#FFFFFF"></path>
+    <path d="M610 208L666 264L638 292L582 236L610 208Z" fill="#D8B35A"></path>
+    <path d="M372 446L428 502L350 524L372 446Z" fill="#F8F4E8"></path>
+    <path d="M372 446L428 502" stroke="#073B63" stroke-width="8" stroke-linecap="round"></path>
+    <path d="M582 236L638 292" stroke="#073B63" stroke-width="7" stroke-linecap="round" opacity="0.75"></path>
+  </g>
+
+  <path d="M120 535H780" stroke="url(#goldLine)" stroke-width="4"></path>
+
+  <text x="450" y="625" text-anchor="middle" fill="#D8B35A" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700" letter-spacing="6">
+    HEAVEN BOUND CHURCH OF GOD
+  </text>
+
+  <text x="450" y="730" text-anchor="middle" fill="#FFFFFF" font-family="Georgia, 'Times New Roman', serif" font-size="82" font-weight="700" letter-spacing="2">
+    FROM THE
+  </text>
+
+  <text x="450" y="835" text-anchor="middle" fill="#FFFFFF" font-family="Georgia, 'Times New Roman', serif" font-size="82" font-weight="700" letter-spacing="2">
+    PASTOR’S
+  </text>
+
+  <text x="450" y="940" text-anchor="middle" fill="#FFFFFF" font-family="Georgia, 'Times New Roman', serif" font-size="82" font-weight="700" letter-spacing="2">
+    DESK
+  </text>
+
+  <path d="M165 985H735" stroke="url(#goldLine)" stroke-width="4"></path>
+
+  <text x="450" y="1045" text-anchor="middle" fill="rgba(255,255,255,0.86)" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="400">
+    A monthly word of encouragement
+  </text>
+
+  <text x="450" y="1090" text-anchor="middle" fill="rgba(255,255,255,0.86)" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="400">
+    from Pastor Debbie Kendrick
+  </text>
+
+  <circle cx="450" cy="1138" r="7" fill="#D8B35A"></circle>
+  <circle cx="420" cy="1138" r="5" fill="#D8B35A" opacity="0.65"></circle>
+  <circle cx="480" cy="1138" r="5" fill="#D8B35A" opacity="0.65"></circle>
+</svg>
