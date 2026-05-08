@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Children's Church Gallery | Heaven Bound Church of God</title>
+  <title>Children's Church | Heaven Bound Church of God</title>
 
   <style>
     :root {
@@ -140,3 +140,678 @@
     .menu-toggle {
       display: none;
       width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--white);
+      font-size: 1.35rem;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .hero {
+      padding: 96px 0 76px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+      background-size: 52px 52px;
+      opacity: 0.35;
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      color: var(--gold);
+      font-family: Arial, sans-serif;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 14px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.7rem, 7vw, 5.5rem);
+      line-height: 0.95;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      text-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero p {
+      max-width: 760px;
+      margin: 24px 0 0;
+      font-family: Arial, sans-serif;
+      color: var(--soft-white);
+      font-size: 1.08rem;
+    }
+
+    .hero-actions {
+      margin-top: 34px;
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 24px;
+      border-radius: 999px;
+      font-family: Arial, sans-serif;
+      font-weight: 700;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--white);
+      color: var(--blue-dark);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.09);
+      color: var(--white);
+    }
+
+    .hero-image-card {
+      background: var(--glass);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 24px 70px var(--shadow);
+      min-height: 420px;
+    }
+
+    .hero-image-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    section {
+      padding: 74px 0;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 38px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .section-heading p {
+      margin-top: 10px;
+      color: var(--soft-white);
+      font-family: Arial, sans-serif;
+    }
+
+    .quick-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .quick-card,
+    .ministry-card,
+    .leader-card,
+    .cta-card {
+      background: var(--glass);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      box-shadow: 0 18px 44px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(10px);
+      overflow: hidden;
+    }
+
+    .quick-card {
+      padding: 30px;
+      text-align: center;
+    }
+
+    .quick-card small,
+    .ministry-card small,
+    .leader-card small,
+    .cta-card small {
+      color: var(--gold);
+      font-family: Arial, sans-serif;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .quick-card h3 {
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      line-height: 1.1;
+      text-transform: uppercase;
+      margin: 12px 0 10px;
+    }
+
+    .quick-card p,
+    .ministry-card p,
+    .leader-card p,
+    .cta-card p {
+      color: var(--soft-white);
+      font-family: Arial, sans-serif;
+    }
+
+    .ministry-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .ministry-card {
+      padding: 30px;
+      position: relative;
+    }
+
+    .ministry-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--gold), rgba(216, 179, 90, 0));
+    }
+
+    .ministry-icon {
+      width: 54px;
+      height: 54px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(216, 179, 90, 0.35);
+      color: var(--gold);
+      font-size: 1.7rem;
+      margin-bottom: 16px;
+      font-family: Arial, sans-serif;
+    }
+
+    .ministry-card h3 {
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      line-height: 1.1;
+      text-transform: uppercase;
+      margin: 8px 0 12px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+
+    .gallery-card {
+      border-radius: 28px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 24px 70px var(--shadow);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .gallery-card img {
+      width: 100%;
+      height: 430px;
+      object-fit: cover;
+    }
+
+    .leaders-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .leader-card {
+      padding: 28px;
+      text-align: center;
+    }
+
+    .leader-card h3 {
+      font-size: 1.45rem;
+      line-height: 1.1;
+      margin: 10px 0 8px;
+      text-transform: uppercase;
+    }
+
+    .leader-card p {
+      color: var(--muted-white);
+      font-size: 0.98rem;
+    }
+
+    .cta-section {
+      padding-top: 0;
+    }
+
+    .cta-card {
+      padding: clamp(32px, 6vw, 58px);
+      text-align: center;
+      background:
+        radial-gradient(circle at top left, rgba(216, 179, 90, 0.2), transparent 34%),
+        rgba(255, 255, 255, 0.08);
+    }
+
+    .cta-card h2 {
+      font-size: clamp(2rem, 5vw, 3.7rem);
+      line-height: 1;
+      text-transform: uppercase;
+      margin: 14px 0 18px;
+    }
+
+    .cta-card p {
+      max-width: 820px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-card .hero-actions {
+      justify-content: center;
+    }
+
+    footer {
+      padding: 42px 0;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.14);
+      color: var(--soft-white);
+      font-family: Arial, sans-serif;
+    }
+
+    footer p {
+      margin: 7px 0;
+    }
+
+    footer a:hover {
+      color: var(--gold);
+    }
+
+    @media (max-width: 940px) {
+      .menu-toggle {
+        display: inline-grid;
+        place-items: center;
+      }
+
+      nav {
+        position: absolute;
+        top: 84px;
+        left: 4%;
+        right: 4%;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 12px;
+        border-radius: 20px;
+        background: rgba(2, 26, 49, 0.97);
+        border: 1px solid var(--border);
+        box-shadow: 0 18px 44px rgba(0, 0, 0, 0.28);
+      }
+
+      nav.open {
+        display: flex;
+      }
+
+      nav a {
+        padding: 13px 14px;
+        border-radius: 14px;
+      }
+
+      nav a:hover,
+      nav a.active {
+        color: var(--gold);
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      .hero-grid,
+      .quick-grid,
+      .ministry-grid,
+      .gallery-grid,
+      .leaders-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        text-align: center;
+      }
+
+      .hero p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-actions {
+        justify-content: center;
+      }
+
+      .hero-image-card {
+        min-height: auto;
+      }
+
+      .gallery-card img {
+        height: auto;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .hero {
+        padding: 74px 0 56px;
+      }
+
+      .brand-mark {
+        display: none;
+      }
+
+      .brand span {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container navbar">
+      <a href="/" class="brand" aria-label="Heaven Bound Church of God Home">
+        <div class="brand-mark" aria-hidden="true"></div>
+        <span>Heaven Bound</span>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open navigation">
+        ☰
+      </button>
+
+      <nav id="mainNav" aria-label="Main navigation">
+        <a href="/">Home</a>
+        <a href="/pages/webilileve.html">What We Believe</a>
+        <a href="/pages/debbie.html">Meet Our Founders</a>
+        <a href="https://www.youtube.com/@heavenboundchurch3377" target="_blank" rel="noopener noreferrer">Videos</a>
+        <a href="/pages/january.html">News</a>
+        <a href="/pages/calendar">Calendar</a>
+        <a href="/pages/children" class="active">Children's Church</a>
+        <a href="https://churchofgod.org/" target="_blank" rel="noopener noreferrer">Church of God</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <span class="eyebrow">Heaven Bound Church of God</span>
+
+          <h1>Children’s Church</h1>
+
+          <p>
+            Our Children’s Church is a safe, welcoming, and joyful place where children
+            ages 3–12 can learn about God’s love through breakfast, worship, Bible lessons,
+            crafts, music, prayer, and special seasonal activities.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#program">What We Do</a>
+            <a class="btn btn-secondary" href="#leaders">Meet The Team</a>
+          </div>
+        </div>
+
+        <div class="hero-image-card">
+          <img src="/pages/Child3.png" alt="Heaven Bound Church of God Children's Church graphic" />
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-heading">
+          <h2>Sunday Morning</h2>
+          <p>A loving place for children to learn, worship, and grow.</p>
+        </div>
+
+        <div class="quick-grid">
+          <article class="quick-card">
+            <small>Ages</small>
+            <h3>3–12</h3>
+            <p>Children’s Church is designed for kids ages 3 through 12.</p>
+          </article>
+
+          <article class="quick-card">
+            <small>When</small>
+            <h3>Sunday Morning</h3>
+            <p>Children meet during Sunday morning service for lessons and activities.</p>
+          </article>
+
+          <article class="quick-card">
+            <small>Purpose</small>
+            <h3>Grow In Faith</h3>
+            <p>Kids are taught God’s Word in a way they can understand and enjoy.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="program">
+      <div class="container">
+        <div class="section-heading">
+          <h2>What We Do</h2>
+          <p>Every part of Children’s Church is designed to help kids feel loved, included, and excited about Jesus.</p>
+        </div>
+
+        <div class="ministry-grid">
+          <article class="ministry-card">
+            <div class="ministry-icon">🍳</div>
+            <small>Breakfast</small>
+            <h3>Breakfast Before Service</h3>
+            <p>
+              A hot, healthy breakfast is served in the classroom before service.
+              We want every child to feel cared for, welcomed, and ready for the morning.
+            </p>
+          </article>
+
+          <article class="ministry-card">
+            <div class="ministry-icon">🎵</div>
+            <small>Worship & Music</small>
+            <h3>Children’s Worship</h3>
+            <p>
+              Children learn songs and have opportunities to be part of the Heaven Bound
+              Church Youth Choir, singing in the main worship service on select Sundays.
+            </p>
+          </article>
+
+          <article class="ministry-card">
+            <div class="ministry-icon">📖</div>
+            <small>Bible Lessons</small>
+            <h3>God’s Word For Kids</h3>
+            <p>
+              Each week includes a Bible lesson and memory verse to help children learn
+              Scripture and understand how to live for Jesus.
+            </p>
+          </article>
+
+          <article class="ministry-card">
+            <div class="ministry-icon">🎨</div>
+            <small>Activities</small>
+            <h3>Crafts & Learning</h3>
+            <p>
+              Craft time is often included to reinforce the weekly Bible lesson in a fun,
+              creative, and hands-on way.
+            </p>
+          </article>
+
+          <article class="ministry-card">
+            <div class="ministry-icon">🙏</div>
+            <small>Prayer</small>
+            <h3>Learning To Pray</h3>
+            <p>
+              Children learn the power of prayer and have dedicated prayer time each week
+              as they grow in their relationship with God.
+            </p>
+          </article>
+
+          <article class="ministry-card">
+            <div class="ministry-icon">⭐</div>
+            <small>Christmas Season</small>
+            <h3>Christmas Play Practice</h3>
+            <p>
+              From September through December, children participate in weekly Christmas
+              play rehearsals during Children’s Church.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-heading">
+          <h2>Children Learning Together</h2>
+          <p>Faith, friendship, creativity, and joy in the classroom.</p>
+        </div>
+
+        <div class="gallery-grid">
+          <div class="gallery-card">
+            <img src="/pages/Child1.jpg" alt="Children gathered for a lesson during Children's Church" />
+          </div>
+
+          <div class="gallery-card">
+            <img src="/pages/Child2.jpg" alt="Children working on crafts during Children's Church" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="leaders">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Children’s Church Team</h2>
+          <p>Thankful for the workers who serve, teach, lead, and care for our children.</p>
+        </div>
+
+        <div class="leaders-grid">
+          <article class="leader-card">
+            <small>Director / Teacher</small>
+            <h3>Sister Jannette White</h3>
+            <p>Leads Children’s Church and teaches weekly Bible lessons.</p>
+          </article>
+
+          <article class="leader-card">
+            <small>Music</small>
+            <h3>Sister Marie Lashley</h3>
+            <p>Teaches songs and helps the children prepare for worship opportunities.</p>
+          </article>
+
+          <article class="leader-card">
+            <small>Breakfast Team</small>
+            <h3>Faithful Workers</h3>
+            <p>Sister Beverly Brownsword, Jana Lashley, and Jessica Harper help serve breakfast before service.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container">
+        <article class="cta-card">
+          <small>Questions?</small>
+          <h2>We’d Love To Help</h2>
+          <p>
+            For questions about Children’s Church, visit Heaven Bound Church of God
+            or speak with the Children’s Church team. We would love to welcome your family.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="/">Back to Home</a>
+            <a class="btn btn-secondary" href="tel:+17066753224">Call the Church</a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Heaven Bound Church of God. All Rights Reserved.</p>
+
+      <p>
+        <a
+          href="https://www.google.com/maps/place/760+Centralhatchee+Pkwy,+Franklin,+GA+30217"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          760 Centralhatchee Pkwy, Franklin, GA 30217
+        </a>
+      </p>
+
+      <p>
+        <a href="tel:+17066753224">(706) 675-3224</a>
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById("menuToggle");
+    const mainNav = document.getElementById("mainNav");
+    const yearElement = document.getElementById("year");
+
+    if (menuToggle && mainNav) {
+      menuToggle.addEventListener("click", () => {
+        mainNav.classList.toggle("open");
+
+        const isOpen = mainNav.classList.contains("open");
+
+        menuToggle.textContent = isOpen ? "×" : "☰";
+        menuToggle.setAttribute(
+          "aria-label",
+          isOpen ? "Close navigation" : "Open navigation"
+        );
+      });
+
+      mainNav.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          mainNav.classList.remove("open");
+          menuToggle.textContent = "☰";
+          menuToggle.setAttribute("aria-label", "Open navigation");
+        });
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          mainNav.classList.remove("open");
+          menuToggle.textContent = "☰";
+          menuToggle.setAttribute("aria-label", "Open navigation");
+        }
+      });
+    }
+
+    if (yearElement) {
+      yearElement.textContent = new Date().getFullYear();
+    }
+  </script>
+</body>
+</html>
